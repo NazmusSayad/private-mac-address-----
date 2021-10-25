@@ -62,7 +62,7 @@
   <body>
     <!--  -->
     <div id="loginPanel">
-      <form id="loginBody">
+      <form onsubmit="return false" id="loginBody">
         <div>
           <label for="username"></label>
           <i class="fas fa-user"></i>
@@ -75,7 +75,7 @@
           <input type="password" id="password" name="password" placeholder="Password" required />
         </div>
         <div>
-          <button id="btn" onclick="clickSignInButton()" type="submit">Sign in</button>
+          <button id="btn" type="submit">Sign in</button>
         </div>
       </form>
     </div>
