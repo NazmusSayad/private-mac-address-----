@@ -50,7 +50,7 @@ const execList = () => {
     }, 300);
     navigator.clipboard.writeText(par.textContent.trim());
   }
-  fetch("https://github.com/NazmusSayad/private-mac-address/raw/main/list.json")
+  fetch("/list.json")
     .then((res) => res.json())
     .then((data) => asdfghjkl(data));
   function asdfghjkl(data) {
