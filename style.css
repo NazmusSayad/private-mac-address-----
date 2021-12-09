@@ -1,67 +1,143 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://02ip.ru/2BwH87.js");
+html {
+  background-color: #202124;
+  color: #ddd;
+  font-family: "Roboto", sans-serif;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
 }
+
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-html {
-  user-select: none;
-  -webkit-user-drag: none;
-}
-body {
-  display: flex;
-  flex-direction: column;
+
+#listPage {
   text-align: center;
-  font-family: "Rubik", sans-serif;
-  background-color: #222;
-  color: #ddd;
 }
-body > div {
-  padding: 0 1.5%;
-  width: 100%;
-  height: 55px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+#listPage .heading {
+  font-weight: 500;
+  font-size: 1.5rem;
+  padding-top: 20px;
+  color: #c9cecf;
+  border-top: 3px solid #555555;
 }
-div:nth-child(even) {
-  background-color: #282828;
+
+#listPage #ownerItem article .p {
+  font-size: 1.5rem;
+  color: #ca5b00;
 }
-#A {
-  text-align: left;
-  user-select: all;
-  font-size: 16px;
+
+#listPage #otherItem article .mac {
+  margin: 0 !important;
+  margin-top: 10px !important;
+}
+
+#listPage #otherItem article .p {
+  display: none;
+}
+
+#listPage #ownerItem .con,
+#listPage #userItem .con,
+#listPage #otherItem .con {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+}
+
+#listPage #ownerItem article,
+#listPage #userItem article,
+#listPage #otherItem article {
+  background-color: #ffffff10;
+  padding: 15px 10px;
+  border-radius: 5px;
+}
+
+#listPage #ownerItem article .mac,
+#listPage #userItem article .mac,
+#listPage #otherItem article .mac {
+  margin: 10px;
+}
+
+#listPage article .name {
+  font-size: 17px;
   font-weight: bold;
   letter-spacing: 1.1px;
+  font-family: "Rubik", sans-serif;
 }
-#B {
-  text-align: center;
+
+#listPage article .mac {
   font-family: "Roboto Mono", monospace;
-  user-select: all;
-  font-size: 17px;
+  font-size: 19px;
 }
-#C,
-#Z {
-  text-align: right;
+
+#listPage article .p {
   font-size: 15px;
   color: #999;
+  font-family: "Rubik", sans-serif;
 }
-#Z {
-  color: rgb(255, 192, 19);
-  font-size: 30px;
+
+noscript {
+  text-align: center;
 }
-#SP {
-  border-bottom: solid 25px #202020;
-  height: 80px;
+
+#logInPage {
+  color: #ddd;
+  text-align: center;
+  display: flex;
+  height: 100vh;
+  min-height: fit-content;
+  justify-content: space-around;
+  flex-direction: column;
 }
-#A,
-#B,
-#C,
-#Z {
-  flex: 1;
+
+#logInPage #loginBody {
+  margin-bottom: 10vh;
+}
+
+#logInPage #loginBody input {
+  font-size: 1.3rem;
+}
+
+#logInPage #loginBody input,
+#logInPage #loginBody .icon,
+#logInPage #loginBody #btn {
+  color: #ddd;
+  background: #ffffff40;
+  outline: 0;
+  border: 0;
+}
+
+#logInPage #loginBody .icon {
+  font-size: 1.1rem;
+  position: absolute;
+  color: #a7abb8;
+  background: none !important;
+  margin-top: 8px;
+  margin-left: 8px;
+}
+
+#logInPage #loginBody input {
+  padding: 5px 5px 5px 35px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+#logInPage #loginBody #btn {
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+}
+
+#logInPage #loginBody #btn:active {
+  opacity: 0.5;
 }
