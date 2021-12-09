@@ -40,39 +40,37 @@ const execList = () => {
     <section class="con"></section>
   </section>`;
   document.querySelector("body").prepend(elMain);
-
   const ownerItem = document.querySelector("#ownerItem > .con");
   const userItem = document.querySelector("#userItem > .con");
   const otherItem = document.querySelector("#otherItem > .con");
-
   function setAndRemoveAt(par) {
     par.style.color = "red";
     setTimeout(() => {
       par.removeAttribute("Style");
     }, 300);
-    navigator.clipboard.writeText(par.textContent);
+    navigator.clipboard.writeText(par.textContent.trim());
   }
-
   fetch("/list.json")
     .then((res) => res.json())
     .then((data) => asdfghjkl(data));
   function asdfghjkl(data) {
     data.forEach((item) => {
       const elArticle = document.createElement("article");
-      elArticle.innerHTML = `<div class="name"><span class="bull">${item.name}</span></div> <div class="mac">${item.mac}</div> <div class="p">${item.p}</div>`;
-
-      switch (item.p) {
+      elArticle.innerHTML = `<div class="name"><span class="bull">${item.name}</span></div> <div class="mac">${item.mac}</div> <div class="p">${item.d}</div>`;
+      switch (item.d) {
         case "♔":
           ownerItem.append(elArticle);
           break;
         case "":
           otherItem.append(elArticle);
           break;
+        case undefined:
+          otherItem.append(elArticle);
+          break;
         default:
           userItem.append(elArticle);
           break;
       }
-
       elArticle.onclick = function () {
         const bull = event.target.classList.contains("bull");
         if (bull) {
@@ -114,7 +112,6 @@ const execLogin = () => {
   const logInForm = document.getElementById("loginBody");
   logInForm.onsubmit = function () {
     event.preventDefault();
-
     if (verifyLog(this.username.value, this.password.value)) {
       document.querySelector("main").remove();
       localStorage.setItem("mac", JSON.stringify({ u: this.username.value, p: this.password.value }));
@@ -127,5 +124,4 @@ const execLogin = () => {
     this.password.value = "";
   };
 };
-
 var macStatus = JSON.parse(localStorage.getItem("mac"));
