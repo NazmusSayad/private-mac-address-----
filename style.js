@@ -30,16 +30,9 @@ html {
   }
   #ownerItem {
     article {
-      .p {
-        font-size: 1.5rem;
-        color: #ca5b00;
+      .name {
+        color: hsl(0, 100%, 80%);
       }
-    }
-  }
-  #userItem {
-  }
-  #otherItem {
-    article {
       .mac {
         margin: 0 !important;
         margin-top: 10px !important;
@@ -49,35 +42,50 @@ html {
       }
     }
   }
-
-  #ownerItem,
-  #userItem,
-  #otherItem {
-    .con {
-      margin: 10px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 10px;
+  #userItem {
+    .name {
+      color: hsl(0, 100%, 90%);
     }
+  }
+  #otherItem {
     article {
-      background-color: #ffffff10;
-      padding: 15px 10px;
-      border-radius: 5px;
+      .name {
+        color: hsl(234, 100%, 80%);
+      }
       .mac {
-        margin: 10px;
+        margin: 0 !important;
+        margin-top: 10px !important;
+      }
+      .p {
+        display: none;
       }
     }
   }
+  .mainItemCon {
+    .con {
+      margin: 10px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+    }
+  }
   article {
-    .name {
+    background-color: #ffffff10;
+    padding: 15px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    .name > span {
       font-size: 17px;
       font-weight: bold;
       letter-spacing: 1.1px;
       font-family: "Rubik", sans-serif;
+      cursor: crosshair;
     }
     .mac {
+      color: #ffffff99;
       font-family: "Roboto Mono", monospace;
       font-size: 19px;
+      margin: 10px;
     }
     .p {
       font-size: 15px;
@@ -132,6 +140,22 @@ noscript {
       cursor: pointer;
       padding: 5px 10px;
       font-size: 1.2rem;
+    }
+  }
+}
+@media screen and (max-width: 1100px) {
+  /*-- When using Tablet || Smaller than 1000px --*/
+  .mainItemCon {
+    .con {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+  }
+}
+@media screen and (max-width: 850px) {
+  /*-- When using Tablet || Smaller than 1000px --*/
+  .mainItemCon {
+    .con {
+      grid-template-columns: repeat(2, 1fr) !important;
     }
   }
 }

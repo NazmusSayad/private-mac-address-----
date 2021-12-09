@@ -30,9 +30,25 @@ html {
   border-top: 3px solid #555555;
 }
 
+#listPage #ownerItem article .name {
+  color: #ff9999;
+}
+
+#listPage #ownerItem article .mac {
+  margin: 0 !important;
+  margin-top: 10px !important;
+}
+
 #listPage #ownerItem article .p {
-  font-size: 1.5rem;
-  color: #ca5b00;
+  display: none;
+}
+
+#listPage #userItem .name {
+  color: #ffcccc;
+}
+
+#listPage #otherItem article .name {
+  color: #99a3ff;
 }
 
 #listPage #otherItem article .mac {
@@ -44,39 +60,33 @@ html {
   display: none;
 }
 
-#listPage #ownerItem .con,
-#listPage #userItem .con,
-#listPage #otherItem .con {
+#listPage .mainItemCon .con {
   margin: 10px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
 }
 
-#listPage #ownerItem article,
-#listPage #userItem article,
-#listPage #otherItem article {
+#listPage article {
   background-color: #ffffff10;
   padding: 15px 10px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-#listPage #ownerItem article .mac,
-#listPage #userItem article .mac,
-#listPage #otherItem article .mac {
-  margin: 10px;
-}
-
-#listPage article .name {
+#listPage article .name > span {
   font-size: 17px;
   font-weight: bold;
   letter-spacing: 1.1px;
   font-family: "Rubik", sans-serif;
+  cursor: crosshair;
 }
 
 #listPage article .mac {
+  color: #ffffff99;
   font-family: "Roboto Mono", monospace;
   font-size: 19px;
+  margin: 10px;
 }
 
 #listPage article .p {
@@ -140,4 +150,18 @@ noscript {
 
 #logInPage #loginBody #btn:active {
   opacity: 0.5;
+}
+
+@media screen and (max-width: 1100px) {
+  /*-- When using Tablet || Smaller than 1000px --*/
+  .mainItemCon .con {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  /*-- When using Tablet || Smaller than 1000px --*/
+  .mainItemCon .con {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }

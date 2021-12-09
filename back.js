@@ -27,32 +27,37 @@ const execList = () => {
   const elMain = document.createElement("main");
   elMain.setAttribute("id", `listPage`);
   elMain.innerHTML = `
-  <!--  -->
   <section class="mainItemCon" id="ownerItem">
     <p class="heading">Omnitrix</p>
     <section class="con"></section>
   </section>
-  <!--  -->
   <section class="mainItemCon" id="userItem">
     <p class="heading">Users</p>
     <section class="con"></section>
   </section>
-  <!--  -->
   <section class="mainItemCon" id="otherItem">
     <p class="heading">Others</p>
     <section class="con"></section>
-  </section>
-  <!--  -->`;
+  </section>`;
   document.querySelector("body").prepend(elMain);
 
   const ownerItem = document.querySelector("#ownerItem > .con");
   const userItem = document.querySelector("#userItem > .con");
   const otherItem = document.querySelector("#otherItem > .con");
+
+  function setAndRemoveAt(par) {
+    par.style.color = "red";
+    setTimeout(() => {
+      par.removeAttribute("Style");
+    }, 300);
+    navigator.clipboard.writeText(par.textContent);
+  }
+
   fetch("/list.json")
     .then((res) => res.json())
     .then((data) => asdfghjkl(data));
   function asdfghjkl(data) {
-    data.forEach((item, ind, arr) => {
+    data.forEach((item) => {
       const elArticle = document.createElement("article");
       elArticle.innerHTML = `<div class="name"><span class="bull">${item.name}</span></div> <div class="mac">${item.mac}</div> <div class="p">${item.p}</div>`;
 
@@ -67,14 +72,13 @@ const execList = () => {
           userItem.append(elArticle);
           break;
       }
+
       elArticle.onclick = function () {
         const bull = event.target.classList.contains("bull");
         if (bull) {
-          const text = event.target.textContent;
-          navigator.clipboard.writeText(text);
+          setAndRemoveAt(event.target);
         } else {
-          const text = this.querySelector(".mac").textContent;
-          navigator.clipboard.writeText(text);
+          setAndRemoveAt(this.querySelector(".mac"));
         }
       };
     });
