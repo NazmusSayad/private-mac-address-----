@@ -1,3 +1,5 @@
+const macStatus = JSON.parse(localStorage.getItem("mac"));
+// ------------------
 const newComp = (parent = "div", innerH = "", classs = "", iddd = "") => {
   if (typeof parent !== "string" || typeof innerH !== "string" || typeof iddd !== "string" || typeof classs !== "string") {
     console.error("Wrong Parameter!");
@@ -21,6 +23,19 @@ const verifyLog = (username, password) => {
     return false;
   }
 };
+// ------------------
+function epd() {
+  event.preventDefault();
+}
+document.addEventListener("copy", epd);
+document.addEventListener("contextmenu", epd);
+document.addEventListener("dragstart", epd);
+document.addEventListener("selectstart", epd);
+document.addEventListener("cut", epd);
+document.addEventListener("touchstart", epd);
+document.addEventListener("paste", epd);
+document.addEventListener("keydown", epd);
+
 // ------------------
 const execList = () => {
   document.title = "MAC Addresses ";
@@ -92,6 +107,7 @@ const execList = () => {
     });
   }
 };
+// ------------------
 const execLogin = () => {
   document.title = "Admin-Login";
   const elLogInPage = newComp(
@@ -134,4 +150,3 @@ const execLogin = () => {
     this.password.value = "";
   };
 };
-var macStatus = JSON.parse(localStorage.getItem("mac"));
