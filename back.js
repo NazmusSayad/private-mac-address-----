@@ -38,11 +38,16 @@ const execList = () => {
   <section class="mainItemCon" id="otherItem">
     <p class="heading">Others</p>
     <section class="con"></section>
+  </section>
+  <section class="mainItemCon" id="unItem">
+    <p class="heading">Unknown</p>
+    <section class="con"></section>
   </section>`;
   document.querySelector("body").prepend(elMain);
   const ownerItem = document.querySelector("#ownerItem > .con");
   const userItem = document.querySelector("#userItem > .con");
   const otherItem = document.querySelector("#otherItem > .con");
+  const unItem = document.querySelector("#unItem > .con");
   function setAndRemoveAt(par) {
     par.style.color = "red";
     setTimeout(() => {
@@ -56,8 +61,21 @@ const execList = () => {
   function asdfghjkl(data) {
     data.forEach((item) => {
       const elArticle = document.createElement("article");
-      elArticle.innerHTML = `<div class="name"><span class="bull">${item.name}</span></div> <div class="mac">${item.mac}</div> <div class="p">${item.d}</div>`;
-      switch (item.d) {
+      elArticle.innerHTML = `<div class="name"><span class="bull">${item.name}</span></div> <div class="mac">${item.mac}</div> <div class="p">${item.des}</div>`;
+      elArticle.onclick = function () {
+        const bull = event.target.classList.contains("bull");
+        if (bull) {
+          setAndRemoveAt(event.target);
+        } else {
+          setAndRemoveAt(this.querySelector(".mac"));
+        }
+      };
+      if (item.name.slice(0, 1) === "!") {
+        elArticle.querySelector(".name span").innerHTML = item.name.slice(1);
+        unItem.append(elArticle);
+        return;
+      }
+      switch (item.des) {
         case "♔":
           ownerItem.append(elArticle);
           break;
@@ -71,14 +89,6 @@ const execList = () => {
           userItem.append(elArticle);
           break;
       }
-      elArticle.onclick = function () {
-        const bull = event.target.classList.contains("bull");
-        if (bull) {
-          setAndRemoveAt(event.target);
-        } else {
-          setAndRemoveAt(this.querySelector(".mac"));
-        }
-      };
     });
   }
 };

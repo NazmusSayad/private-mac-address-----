@@ -2,22 +2,22 @@
   {
     "name": "[WiredLAN]",
     "mac": "F4:30:B9:80:C9:51",
-    "d": "♔"
+    "des": "♔"
   },
   {
     "name": "[Phone]",
     "mac": "94:3A:F0:A1:D4:7A",
-    "d": "♔"
+    "des": "♔"
   },
   {
     "name": "[WirelessLAN]",
     "mac": "3C:F8:62:F3:80:3B",
-    "d": "♔"
+    "des": "♔"
   },
   {
     "name": "Farid",
     "mac": "88:1C:95:AC:A0:74",
-    "d": "30-Dec"
+    "des": "30-Dec"
   },
   {
     "name": "Medul",
@@ -68,10 +68,11 @@
     "mac": "40:D2:5F:F4:7A:F5"
   },
   {
-    "name": "android-18c23dd7d11b7152",
+    "name": "!android-18c23dd7d11b7152",
     "mac": "3C:97:10:F0:83:D7"
-  },  {
+  },
+  {
     "name": "SohemMama",
-    "mac": "F8:2F:6A:DB:40:E9	"
+    "mac": "F8:2F:6A:DB:40:E9"
   }
 ]
