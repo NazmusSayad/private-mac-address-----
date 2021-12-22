@@ -84,13 +84,16 @@ html {
     background-color: #ffffff10;
     padding: 15px 10px;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: grab;
+    &:active {
+      cursor: grabbing;
+    }
     .name > span {
       font-size: 17px;
       font-weight: bold;
       letter-spacing: 1.1px;
       font-family: "Rubik", sans-serif;
-      cursor: crosshair;
+      cursor: pointer;
     }
     .mac {
       color: #ffffff99;

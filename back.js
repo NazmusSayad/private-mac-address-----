@@ -27,14 +27,14 @@ const verifyLog = (username, password) => {
 function epd() {
   event.preventDefault();
 }
-document.addEventListener("copy", epd);
+/* document.addEventListener("copy", epd);
 document.addEventListener("contextmenu", epd);
 document.addEventListener("dragstart", epd);
 document.addEventListener("selectstart", epd);
 document.addEventListener("cut", epd);
 document.addEventListener("touchstart", epd);
 document.addEventListener("paste", epd);
-document.addEventListener("keydown", epd);
+document.addEventListener("keydown", epd); */
 
 // ------------------
 const execList = () => {
@@ -74,6 +74,7 @@ const execList = () => {
     .then((res) => res.json())
     .then((data) => asdfghjkl(data));
   function asdfghjkl(data) {
+    data.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
     data.forEach((item) => {
       const elArticle = document.createElement("article");
       elArticle.innerHTML = `<div class="name"><span class="bull">${item.name}</span></div> <div class="mac">${item.mac}</div> <div class="p">${item.des}</div>`;
