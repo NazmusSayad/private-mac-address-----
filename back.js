@@ -27,14 +27,14 @@ const verifyLog = (username, password) => {
 function epd() {
   event.preventDefault();
 }
-/* document.addEventListener("copy", epd);
+document.addEventListener("copy", epd);
 document.addEventListener("contextmenu", epd);
 document.addEventListener("dragstart", epd);
 document.addEventListener("selectstart", epd);
 document.addEventListener("cut", epd);
 document.addEventListener("touchstart", epd);
 document.addEventListener("paste", epd);
-document.addEventListener("keydown", epd); */
+document.addEventListener("keydown", epd);
 
 // ------------------
 const execList = () => {
