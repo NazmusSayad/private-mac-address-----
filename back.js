@@ -126,21 +126,21 @@ const execList = () => {
       if (item.name.slice(0, 1) === "!") {
         elArticle.querySelector(".name span").innerHTML = item.name.slice(1);
         unItem.append(elArticle);
-        elArticle.tag += "unknownfaltuajairakidacininaoporichitojanina";
+        elArticle.tag += "unknownfaltuajairakidacininaoporichitojaninaetc";
         return;
       }
       switch (item.date) {
         case "♔":
           ownerItem.append(elArticle);
-          elArticle.tag += "ownersamimemyselfsayadnazmusbabuthisanisa";
+          elArticle.tag += "ownersamimemyselfsayadnazmusbabuthisanisatanimsifatpayelbornalighoshghostcadnianikasigmajoti";
           break;
         case "":
           otherItem.append(elArticle);
-          elArticle.tag += "othersbakiextramorepublicpeoplesobai";
+          elArticle.tag += "othersbakiextramorepublicpeoplesobaietc";
           break;
         case undefined:
           otherItem.append(elArticle);
-          elArticle.tag += "othersbakiextramorepublicpeoplesobai";
+          elArticle.tag += "othersbakiextramorepublicpeoplesobaietc";
           break;
         default:
           userItem.append(elArticle);
