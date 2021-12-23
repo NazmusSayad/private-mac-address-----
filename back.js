@@ -113,7 +113,7 @@ const execList = () => {
         item.tag = item.tag.replace(/\s+/g, "");
       }
       const elArticle = document.createElement("article");
-      elArticle.innerHTML = `<div class="name"><span class="bull">${item.name}</span></div> <div class="mac">${item.mac}</div> <div class="p">${item.date}</div>`;
+      elArticle.innerHTML = `<div class="name"><span class="bull">${item.name || ""}</span></div> <div class="mac">${item.mac || ""}</div> <div class="p">${item.date || ""}</div>`;
       elArticle.tag = ((item.name || "") + " " + (item.mac || "") + " " + (item.date || "") + " " + (item.tag || "")).toLowerCase();
       elArticle.onclick = function () {
         const bull = event.target.classList.contains("bull");

@@ -2,22 +2,25 @@
   {
     "name": "[WiredLAN]",
     "mac": "F4:30:B9:80:C9:51",
-    "tag": "ami kasdf jkas df",
+    "tag": "pc",
     "date": "♔"
   },
   {
     "name": "[Phone]",
     "mac": "94:3A:F0:A1:D4:7A",
+    "tag": "phn",
     "date": "♔"
   },
   {
     "name": "[WirelessLAN]",
     "mac": "3C:F8:62:F3:80:3B",
+    "tag": "pc",
     "date": "♔"
   },
   {
     "name": "Farid",
     "mac": "88:1C:95:AC:A0:74",
+    "tag":"foridfridforadforiad",
     "date": "30-Dec"
   },
   {
