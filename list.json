@@ -2,26 +2,28 @@
   {
     "name": "[WiredLAN]",
     "mac": "F4:30:B9:80:C9:51",
-    "d": "♔"
+    "tag": "ami kasdf jkas df",
+    "date": "♔"
   },
   {
     "name": "[Phone]",
     "mac": "94:3A:F0:A1:D4:7A",
-    "d": "♔"
+    "date": "♔"
   },
   {
     "name": "[WirelessLAN]",
     "mac": "3C:F8:62:F3:80:3B",
-    "d": "♔"
+    "date": "♔"
   },
   {
     "name": "Farid",
     "mac": "88:1C:95:AC:A0:74",
-    "d": "30-Dec"
+    "date": "30-Dec"
   },
   {
     "name": "Medul",
-    "mac": "34:8B:75:00:AC:43"
+    "mac": "34:8B:75:00:AC:43",
+    "date": ""
   },
   {
     "name": "Masum Wireless",
