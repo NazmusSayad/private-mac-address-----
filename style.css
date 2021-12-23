@@ -21,6 +21,33 @@ html {
   box-sizing: border-box;
 }
 
+.search {
+  border-top: 3px solid #555555;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  background: #ffffff10;
+}
+
+.search .ico > svg {
+  height: 25px;
+  cursor: pointer;
+  padding: 3px 10px 0 10px;
+  color: #a7abb8;
+}
+
+.search input {
+  height: 100%;
+  outline: none;
+  border: none;
+  color: #ddd;
+  background: #ffffff15;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 5px 20px;
+}
+
 #listPage {
   text-align: center;
 }
@@ -89,6 +116,8 @@ html {
 }
 
 #listPage article .name > span {
+  padding: 5px 10px;
+  border-radius: 5px;
   font-size: 17px;
   font-weight: bold;
   letter-spacing: 1.1px;

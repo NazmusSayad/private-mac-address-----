@@ -19,7 +19,34 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
-
+.search {
+  border-top: 3px solid rgb(85, 85, 85);
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  background: #ffffff10;
+  .searchIcon > svg {
+  }
+  .crossIcon > svg {
+  }
+  .ico > svg {
+    height: 25px;
+    cursor: pointer;
+    padding: 3px 10px 0 10px;
+    color: #a7abb8;
+  }
+  input {
+    height: 100%;
+    outline: none;
+    border: none;
+    color: #ddd;
+    background: #ffffff15;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 5px 20px;
+  }
+}
 #listPage {
   text-align: center;
   .heading {
@@ -88,12 +115,16 @@ html {
     &:active {
       cursor: grabbing;
     }
-    .name > span {
-      font-size: 17px;
-      font-weight: bold;
-      letter-spacing: 1.1px;
-      font-family: "Rubik", sans-serif;
-      cursor: pointer;
+    .name {
+      & > span {
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 17px;
+        font-weight: bold;
+        letter-spacing: 1.1px;
+        font-family: "Rubik", sans-serif;
+        cursor: pointer;
+      }
     }
     .mac {
       color: #ffffff99;
