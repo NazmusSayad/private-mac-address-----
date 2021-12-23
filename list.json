@@ -2,33 +2,33 @@
   {
     "name": "[WiredLAN]",
     "mac": "F4:30:B9:80:C9:51",
-    "des": "♔"
+    "d": "♔"
   },
   {
     "name": "[Phone]",
     "mac": "94:3A:F0:A1:D4:7A",
-    "des": "♔"
+    "d": "♔"
   },
   {
     "name": "[WirelessLAN]",
     "mac": "3C:F8:62:F3:80:3B",
-    "des": "♔"
+    "d": "♔"
   },
   {
     "name": "Farid",
     "mac": "88:1C:95:AC:A0:74",
-    "des": "30-Dec"
+    "d": "30-Dec"
   },
   {
     "name": "Medul",
     "mac": "34:8B:75:00:AC:43"
   },
   {
-    "name": "MasumWireless",
+    "name": "Masum Wireless",
     "mac": "24:41:8C:66:87:3F"
   },
   {
-    "name": "HasibMamu",
+    "name": "Hasib Mamu",
     "mac": "EC:7C:B6:AC:3C:14"
   },
   {
@@ -36,7 +36,7 @@
     "mac": "FC:39:64:4B:CF:FA"
   },
   {
-    "name": "SahanMamu",
+    "name": "Sahan Mamu",
     "mac": "E4:58:B8:BF:27:63"
   },
   {
@@ -44,23 +44,23 @@
     "mac": "AC:5A:14:D2:03:A2"
   },
   {
-    "name": "RonyMama",
+    "name": "Rony Mama",
     "mac": "82:64:C0:61:A6:F3"
   },
   {
-    "name": "MedulAmmu",
+    "name": "Medul Ammu",
     "mac": "08:25:25:2E:4B:79"
   },
   {
-    "name": "MasumPhone",
+    "name": "Masum Phone",
     "mac": "88:D5:A8:28:07:83"
   },
   {
-    "name": "PappuMamaRouter",
+    "name": "Pappu Mama Router",
     "mac": "E0:1C:FC:3E:9C:5C"
   },
   {
-    "name": "MredulKhalatoBhai",
+    "name": "Mredul Khalato Bhai",
     "mac": "04:B1:67:33:C7:4C"
   },
   {
@@ -72,7 +72,7 @@
     "mac": "3C:97:10:F0:83:D7"
   },
   {
-    "name": "SohemMama",
+    "name": "Sohem Mama",
     "mac": "F8:2F:6A:DB:40:E9"
   },
   {

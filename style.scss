@@ -1,15 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
 html {
   user-select: none;
   -webkit-user-drag: none;
   background-color: #202124;
-  color: #ddd;
-  font-family: "Roboto", sans-serif;
   cursor: default;
   scroll-behavior: smooth;
+}
+body {
+  color: #ddd;
+  font-family: "Roboto", sans-serif;
 }
 ::-webkit-scrollbar {
   width: 0px;
@@ -19,44 +21,23 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
-.search {
-  border-top: 3px solid rgb(85, 85, 85);
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-  background: #ffffff10;
-  .searchIcon > svg {
-  }
-  .crossIcon > svg {
-  }
-  .ico > svg {
-    height: 25px;
-    cursor: pointer;
-    padding: 3px 10px 0 10px;
-    color: #a7abb8;
-  }
-  input {
-    height: 100%;
-    outline: none;
-    border: none;
-    color: #ddd;
-    background: #ffffff15;
-    border-radius: 20px;
-    font-size: 1.2rem;
-    width: 100%;
-    padding: 5px 20px;
-  }
-}
+
 #listPage {
+  margin-bottom: 75px;
   text-align: center;
   .heading {
-    font-weight: 500;
+    font-family: "Acme", sans-serif;
+    letter-spacing: 1px;
+    font-weight: 700;
     font-size: 1.5rem;
-    padding-top: 20px;
+    padding: 15px 0 5px;
     color: rgb(201, 206, 207);
     border-top: 3px solid rgb(85, 85, 85);
   }
   #ownerItem {
+    .heading {
+      border: 0 !important;
+    }
     article {
       .name {
         color: hsl(0, 100%, 80%);
@@ -139,9 +120,6 @@ html {
     }
   }
 }
-noscript {
-  text-align: center;
-}
 #logInPage {
   color: #ddd;
   text-align: center;
@@ -150,7 +128,6 @@ noscript {
   min-height: fit-content;
   justify-content: space-around;
   flex-direction: column;
-
   #loginBody {
     margin-bottom: 10vh;
     input {
@@ -164,6 +141,14 @@ noscript {
       outline: 0;
       border: 0;
     }
+    .eye {
+      position: absolute;
+      margin-left: -35px;
+      margin-top: 9px;
+      color: #a7abb8;
+      width: 35px;
+      cursor: pointer;
+    }
     .icon {
       font-size: 1.1rem;
       position: absolute;
@@ -173,7 +158,7 @@ noscript {
       margin-left: 8px;
     }
     input {
-      padding: 5px 5px 5px 35px;
+      padding: 5px 35px;
       border-radius: 5px;
       margin-bottom: 15px;
     }
@@ -187,6 +172,67 @@ noscript {
       font-size: 1.2rem;
     }
   }
+}
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  border-top: 2px solid rgb(85, 85, 85);
+  border-bottom: 3px solid rgb(85, 85, 85);
+  background-color: #2f3136;
+  width: 100%;
+  #logOut {
+    text-align: center;
+    width: fit-content;
+    button {
+      font-family: "Acme", sans-serif;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      transition: ease-in-out 300ms;
+      color: #ed3d3e;
+      padding: 5px 15px;
+      background: #34373c;
+      &:hover {
+        background: #ffffff10;
+      }
+    }
+  }
+  .search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: #ffffff01;
+    .searchIcon > svg {
+    }
+    .crossIcon > svg {
+    }
+    .ico > svg {
+      height: 25px;
+      cursor: pointer;
+      padding: 3px 10px 0 10px;
+      color: #a7abb8;
+      transition: color 300ms;
+      &:hover {
+        color: #8ab7d4;
+      }
+    }
+    input {
+      height: 100%;
+      outline: none;
+      border: none;
+      color: #d8c1d8;
+      background: #ffffff15;
+      border-radius: 20px;
+      font-size: 1.2rem;
+      width: 100%;
+      padding: 5px 15px;
+    }
+  }
+}
+
+noscript {
+  text-align: center;
 }
 @media screen and (max-width: 1100px) {
   /*-- When using Tablet || Smaller than 1000px --*/

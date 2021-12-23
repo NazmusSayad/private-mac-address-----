@@ -1,14 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
 html {
   user-select: none;
   -webkit-user-drag: none;
   background-color: #202124;
-  color: #ddd;
-  font-family: "Roboto", sans-serif;
   cursor: default;
   scroll-behavior: smooth;
+}
+
+body {
+  color: #ddd;
+  font-family: "Roboto", sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -21,43 +25,23 @@ html {
   box-sizing: border-box;
 }
 
-.search {
-  border-top: 3px solid #555555;
-  margin-top: 30px;
-  display: flex;
-  align-items: center;
-  background: #ffffff10;
-}
-
-.search .ico > svg {
-  height: 25px;
-  cursor: pointer;
-  padding: 3px 10px 0 10px;
-  color: #a7abb8;
-}
-
-.search input {
-  height: 100%;
-  outline: none;
-  border: none;
-  color: #ddd;
-  background: #ffffff15;
-  border-radius: 20px;
-  font-size: 1.2rem;
-  width: 100%;
-  padding: 5px 20px;
-}
-
 #listPage {
+  margin-bottom: 75px;
   text-align: center;
 }
 
 #listPage .heading {
-  font-weight: 500;
+  font-family: "Acme", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 700;
   font-size: 1.5rem;
-  padding-top: 20px;
+  padding: 15px 0 5px;
   color: #c9cecf;
   border-top: 3px solid #555555;
+}
+
+#listPage #ownerItem .heading {
+  border: 0 !important;
 }
 
 #listPage #ownerItem article .name {
@@ -138,10 +122,6 @@ html {
   font-family: "Rubik", sans-serif;
 }
 
-noscript {
-  text-align: center;
-}
-
 #logInPage {
   color: #ddd;
   text-align: center;
@@ -169,6 +149,15 @@ noscript {
   border: 0;
 }
 
+#logInPage #loginBody .eye {
+  position: absolute;
+  margin-left: -35px;
+  margin-top: 9px;
+  color: #a7abb8;
+  width: 35px;
+  cursor: pointer;
+}
+
 #logInPage #loginBody .icon {
   font-size: 1.1rem;
   position: absolute;
@@ -179,7 +168,7 @@ noscript {
 }
 
 #logInPage #loginBody input {
-  padding: 5px 5px 5px 35px;
+  padding: 5px 35px;
   border-radius: 5px;
   margin-bottom: 15px;
 }
@@ -193,6 +182,71 @@ noscript {
 
 #logInPage #loginBody #btn:active {
   opacity: 0.5;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  border-top: 2px solid #555555;
+  border-bottom: 3px solid #555555;
+  background-color: #2f3136;
+  width: 100%;
+}
+
+header #logOut {
+  text-align: center;
+  width: fit-content;
+}
+
+header #logOut button {
+  font-family: "Acme", sans-serif;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: ease-in-out 300ms;
+  color: #ed3d3e;
+  padding: 5px 15px;
+  background: #34373c;
+}
+
+header #logOut button:hover {
+  background: #ffffff10;
+}
+
+header .search {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #ffffff01;
+}
+
+header .search .ico > svg {
+  height: 25px;
+  cursor: pointer;
+  padding: 3px 10px 0 10px;
+  color: #a7abb8;
+  transition: color 300ms;
+}
+
+header .search .ico > svg:hover {
+  color: #8ab7d4;
+}
+
+header .search input {
+  height: 100%;
+  outline: none;
+  border: none;
+  color: #d8c1d8;
+  background: #ffffff15;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 5px 15px;
+}
+
+noscript {
+  text-align: center;
 }
 
 @media screen and (max-width: 1100px) {

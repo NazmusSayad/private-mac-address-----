@@ -24,17 +24,24 @@ const verifyLog = (username, password) => {
   }
 };
 // ------------------
+function showHide(self) {
+  if (self.classList.contains("fa-eye")) {
+    self.classList.add("fa-eye-slash");
+    self.classList.remove("fa-eye");
+    self.parentNode.querySelector("#password").type = "text";
+  } else {
+    self.classList.add("fa-eye");
+    self.classList.remove("fa-eye-slash");
+    self.parentNode.querySelector("#password").type = "password";
+  }
+}
+// ------------------
 function epd() {
   event.preventDefault();
 }
 // ------------------
-const search = function () {
-  const elms = [
-    ...document.querySelectorAll("#userItem article"),
-    ...document.querySelectorAll("#otherItem article"),
-    ...document.querySelectorAll("#unItem article"),
-  ];
-  elms.forEach((element) => {
+const search = (input) => {
+  document.querySelectorAll(".mainItemCon article").forEach((element) => {
     if (!element.textContent.toLowerCase().includes(input.value.toLowerCase())) {
       element.style.display = "none";
     } else {
@@ -43,19 +50,29 @@ const search = function () {
   });
 };
 // ------------------
+const inputSpace = () => {
+  if (event.code === "Space") {
+    event.preventDefault();
+  }
+};
 const execList = () => {
   document.title = "MAC Addresses ";
   const elMain = document.createElement("main");
   elMain.setAttribute("id", `listPage`);
   elMain.innerHTML = `
-<section class="mainItemCon" id="ownerItem">
-  <p class="heading">Omnitrix</p>
-  <section class="con"></section>
-</section>
+<header>      
 <section class="search">
-  <i class="searchIcon ico" onclick="this.parentNode.querySelector('input').focus()" ><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></i>
-  <input autocomplete="off" type="text">
-  <i class="crossIcon ico" onclick="this.parentNode.querySelector('input').value='';this.parentNode.querySelector('input').focus();" ><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg></i>
+  <i class="searchIcon ico" onclick="this.parentNode.querySelector('input').focus();"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></i>
+  <input onkeydown="inputSpace()" oninput="search(this)" autocomplete="off" type="text">
+  <i class="crossIcon ico" onclick="self = this.parentNode.querySelector('input');self.value='';self.focus();search(self)"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg></i>
+</section>
+<section id="logOut">
+  <button onclick="logOut()">Log Out</button>
+</section>
+</header>
+<section class="mainItemCon" id="ownerItem">
+  <p class="heading">♔ Owner ♔</p>
+  <section class="con"></section>
 </section>
 <section class="mainItemCon" id="userItem">
   <p class="heading">Users</p>
@@ -69,7 +86,7 @@ const execList = () => {
   <p class="heading">Unknown</p>
   <section class="con"></section>
 </section>`;
-  document.querySelector("body").prepend(elMain);
+  document.querySelector("body").append(elMain);
   const ownerItem = document.querySelector("#ownerItem > .con");
   const userItem = document.querySelector("#userItem > .con");
   const otherItem = document.querySelector("#otherItem > .con");
@@ -87,8 +104,10 @@ const execList = () => {
   function asdfghjkl(data) {
     data.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
     data.forEach((item) => {
+      item.name = item.name.replace(/\s+/g, "");
+      item.mac = item.mac.replace(/\s+/g, "");
       const elArticle = document.createElement("article");
-      elArticle.innerHTML = `<div class="name"><span class="bull">${item.name}</span></div> <div class="mac">${item.mac}</div> <div class="p">${item.des}</div>`;
+      elArticle.innerHTML = `<div class="name"><span class="bull">${item.name}</span></div> <div class="mac">${item.mac}</div> <div class="p">${item.d}</div>`;
       elArticle.onclick = function () {
         const bull = event.target.classList.contains("bull");
         if (bull) {
@@ -102,14 +121,11 @@ const execList = () => {
         unItem.append(elArticle);
         return;
       }
-      switch (item.des) {
+      switch (item.d) {
         case "♔":
           ownerItem.append(elArticle);
           break;
-        case "":
-          otherItem.append(elArticle);
-          break;
-        case undefined:
+        case "" || undefined:
           otherItem.append(elArticle);
           break;
         default:
@@ -135,8 +151,9 @@ const execLogin = () => {
     <div>
       <label for="pass"></label>
       <i class="fas icon fa-lock"></i>
-      <input type="password" id="password" name="password" placeholder="Password" required />
-    </div>
+      <input oncopy="event.preventDefault()" oncut="event.preventDefault()" onpaste="event.preventDefault()" type="password" id="password" name="password" placeholder="Password" required />
+      <i onclick="showHide(this)" class="eye fas fa-eye"></i>
+     </div>
     <div>
       <button id="btn" type="submit">Sign in</button>
     </div>
@@ -162,3 +179,12 @@ const execLogin = () => {
     this.password.value = "";
   };
 };
+// ------------------
+function logOut() {
+  document.title = "Logging Out...";
+  localStorage.clear();
+  document.querySelector("main").remove();
+  setTimeout(() => {
+    execLogin();
+  }, 500);
+}
