@@ -173,8 +173,7 @@ const execLogin = () => {
       <button id="btn" type="submit">Sign in</button>
     </div>
   </form>
-  </div>
-  `,
+  </div>`,
     "",
     "logInPage"
   );
