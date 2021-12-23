@@ -132,7 +132,7 @@ const execList = () => {
       switch (item.date) {
         case "♔":
           ownerItem.append(elArticle);
-          elArticle.tag += "ownersamimemyselfsayadnazmusbabuthisanisatanimsifatpayelbornalighoshghostcadnianikasigmajoti";
+          elArticle.tag += "ownersamimemyselfsayadnazmusbabuthis";
           break;
         case "":
           otherItem.append(elArticle);
