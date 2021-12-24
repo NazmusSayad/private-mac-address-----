@@ -1,4 +1,5 @@
 const macStatus = JSON.parse(localStorage.getItem("mac"));
+let contextArticle;
 // ------------------
 const newComp = (parent = "div", innerH = "", classs = "", iddd = "") => {
   if (typeof parent !== "string" || typeof innerH !== "string" || typeof iddd !== "string" || typeof classs !== "string") {
@@ -70,6 +71,11 @@ const execList = () => {
   <button onclick="logOut()">Log Out</button>
 </section>
 </header>
+<div id="context">
+  <div item="name" class="item">Copy Name</div>
+  <div class="div"></div>
+  <div item="mac" class="item">Copy Mac</div>
+</div>
 <section class="mainItemCon" id="ownerItem">
   <p class="heading">♔ Owner ♔</p>
   <section class="con"></section>
@@ -113,8 +119,10 @@ const execList = () => {
         item.tag = item.tag.replace(/\s+/g, "");
       }
       const elArticle = document.createElement("article");
-      elArticle.innerHTML = `<div class="name"><span class="bull">${item.name || ""}</span></div> <div class="mac">${item.mac || ""}</div> <div class="p">${item.date || ""}</div>`;
-      elArticle.tag = ((item.name || "") + " " + (item.mac || "") + " " + (item.date || "") + " " + (item.tag || "")).toLowerCase();
+      elArticle.innerHTML = `<div class="name"><span class="bull">${item.name}</span></div> <div class="mac">${item.mac}</div> <div class="p">${
+        item.date || ""
+      }</div>`;
+      elArticle.tag = (item.name + " " + item.mac + " " + (item.date || "") + " " + (item.tag || "")).toLowerCase();
       elArticle.onclick = function () {
         const bull = event.target.classList.contains("bull");
         if (bull) {
@@ -123,6 +131,32 @@ const execList = () => {
           setAndRemoveAt(this.querySelector(".mac"));
         }
       };
+      const contextMenu = document.querySelector("#context");
+      elArticle.oncontextmenu = function () {
+        const t = event.clientY;
+        const l = event.clientX;
+        contextMenu.style.top = t - 1 + "px";
+        contextMenu.style.left = l - 1 + "px";
+        contextMenu.style.display = "block";
+        contextArticle = this;
+      };
+      const hideContext = function () {
+        document.querySelector("#context").removeAttribute("Style");
+      };
+      contextMenu.onclick = () => {
+        const tar = event.target.getAttribute("item");
+        switch (tar) {
+          case "name":
+            setAndRemoveAt(contextArticle.querySelector(".name"));
+            break;
+          case "mac":
+            setAndRemoveAt(contextArticle.querySelector(".mac"));
+            break;
+        }
+        console.log(contextArticle);
+        hideContext();
+      };
+      document.onclick = hideContext;
       if (item.name.slice(0, 1) === "!") {
         elArticle.querySelector(".name span").innerHTML = item.name.slice(1);
         unItem.append(elArticle);

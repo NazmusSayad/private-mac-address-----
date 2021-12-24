@@ -8,7 +8,6 @@ html {
   background-color: #202124;
   cursor: default;
   scroll-behavior: smooth;
-  width: 100vw;
 }
 
 body {
@@ -29,6 +28,33 @@ body {
 #listPage {
   margin-bottom: 75px;
   text-align: center;
+}
+
+#listPage #context {
+  text-align: left;
+  width: max-content;
+  display: none;
+  position: fixed;
+  z-index: 100;
+  box-shadow: 0 0 7px 0 #d8c1d8;
+  border-radius: 7px;
+  background-color: #39393b;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #caccd4;
+}
+
+#listPage #context .item {
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#listPage #context .div {
+  height: 2px;
+  width: 100%;
+  background-color: #303036;
 }
 
 #listPage .heading {
@@ -89,18 +115,18 @@ body {
   grid-gap: 10px;
 }
 
-#listPage article {
+#listPage .mainItemCon article {
   background-color: #ffffff10;
   padding: 15px 10px;
   border-radius: 5px;
   cursor: grab;
 }
 
-#listPage article:active {
+#listPage .mainItemCon article:active {
   cursor: grabbing;
 }
 
-#listPage article .name > span {
+#listPage .mainItemCon article .name > span {
   padding: 3px 10px;
   border-radius: 5px;
   font-size: 17px;
@@ -110,14 +136,14 @@ body {
   cursor: pointer;
 }
 
-#listPage article .mac {
+#listPage .mainItemCon article .mac {
   color: #ffffff99;
   font-family: "Roboto Mono", monospace;
   font-size: 19px;
   margin: 10px;
 }
 
-#listPage article .p {
+#listPage .mainItemCon article .p {
   font-size: 15px;
   color: #999;
   font-family: "Rubik", sans-serif;

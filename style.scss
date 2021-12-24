@@ -9,6 +9,7 @@ html {
   cursor: default;
   scroll-behavior: smooth;
 }
+
 body {
   color: #ddd;
   font-family: "Roboto", sans-serif;
@@ -24,6 +25,30 @@ body {
 #listPage {
   margin-bottom: 75px;
   text-align: center;
+  #context {
+    text-align: left;
+    width: max-content;
+    display: none;
+    position: fixed;
+    z-index: 100;
+    box-shadow: 0 0 7px 0 #d8c1d8;
+    border-radius: 7px;
+    background-color: #39393b;
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #caccd4;
+    .item {
+      margin: 5px;
+      padding: 5px;
+      cursor: pointer;
+    }
+    .div {
+      height: 2px;
+      width: 100%;
+      background-color: rgb(48, 48, 54);
+    }
+  }
   .heading {
     font-family: "Acme", sans-serif;
     letter-spacing: 1px;
@@ -86,36 +111,36 @@ body {
       grid-template-columns: repeat(4, 1fr);
       grid-gap: 10px;
     }
-  }
-  article {
-    background-color: #ffffff10;
-    padding: 15px 10px;
-    border-radius: 5px;
-    cursor: grab;
-    &:active {
-      cursor: grabbing;
-    }
-    .name {
-      & > span {
-        padding: 3px 10px;
-        border-radius: 5px;
-        font-size: 17px;
-        font-weight: bold;
-        letter-spacing: 1.1px;
-        font-family: "Rubik", sans-serif;
-        cursor: pointer;
+    article {
+      background-color: #ffffff10;
+      padding: 15px 10px;
+      border-radius: 5px;
+      cursor: grab;
+      &:active {
+        cursor: grabbing;
       }
-    }
-    .mac {
-      color: #ffffff99;
-      font-family: "Roboto Mono", monospace;
-      font-size: 19px;
-      margin: 10px;
-    }
-    .p {
-      font-size: 15px;
-      color: #999;
-      font-family: "Rubik", sans-serif;
+      .name {
+        & > span {
+          padding: 3px 10px;
+          border-radius: 5px;
+          font-size: 17px;
+          font-weight: bold;
+          letter-spacing: 1.1px;
+          font-family: "Rubik", sans-serif;
+          cursor: pointer;
+        }
+      }
+      .mac {
+        color: #ffffff99;
+        font-family: "Roboto Mono", monospace;
+        font-size: 19px;
+        margin: 10px;
+      }
+      .p {
+        font-size: 15px;
+        color: #999;
+        font-family: "Rubik", sans-serif;
+      }
     }
   }
 }
