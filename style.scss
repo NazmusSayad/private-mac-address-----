@@ -31,20 +31,33 @@ body {
     display: none;
     position: fixed;
     z-index: 100;
-    box-shadow: 0 0 7px 0 #d8c1d8;
-    border-radius: 7px;
+    box-shadow: 0 0 3px 0 #d8c1d8;
+    border-radius: 3px;
     background-color: #39393b;
     font-family: "Rubik", sans-serif;
     font-weight: 600;
+    font-size: 15px;
     letter-spacing: 1px;
     color: #caccd4;
     .item {
-      margin: 5px;
+      display: flex;
+      align-items: center;
       padding: 5px;
       cursor: pointer;
+      &:hover {
+        background-color: #ffffff10;
+        svg {
+          color: #a9c4d6;
+        }
+      }
+      svg {
+        height: 15px;
+        margin-right: 7px;
+        margin-top: 3px;
+      }
     }
     .div {
-      height: 2px;
+      height: 1px;
       width: 100%;
       background-color: rgb(48, 48, 54);
     }
