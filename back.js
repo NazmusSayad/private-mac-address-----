@@ -170,7 +170,7 @@ const execList = () => {
         hideContext();
       };
       document.onclick = hideContext;
-      if (item.name.slice(0, 1) === "!") {
+      if (item.name.slice(0, 1) === "-") {
         elArticle.querySelector(".name span").innerHTML = item.name.slice(1);
         unItem.append(elArticle);
         elArticle.tag += "unknownfaltuajairakidacininaoporichitojaninaetc";
@@ -195,6 +195,7 @@ const execList = () => {
           break;
       }
     });
+    document.querySelector(".crossIcon").click();
   }
 };
 // ------------------
