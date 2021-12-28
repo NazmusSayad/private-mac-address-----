@@ -50,9 +50,24 @@ const search = (input) => {
     const bulbul = bulset.length === 1 && bulset[0] === true;
     if (bulbul) {
       element.removeAttribute("Style");
-      return;
+    } else {
+      element.style.display = "none";
     }
-    element.style.display = "none";
+  });
+  document.querySelectorAll(".mainItemCon").forEach((element) => {
+    const trueFalse = [];
+    element.querySelectorAll("article").forEach((element2) => {
+      if (element2.style.display) {
+        trueFalse.push(false);
+      } else {
+        trueFalse.push(true);
+      }
+    });
+    if (!trueFalse.includes(true)) {
+      element.style.display = "none";
+    } else {
+      element.removeAttribute("Style");
+    }
   });
 };
 // ------------------
