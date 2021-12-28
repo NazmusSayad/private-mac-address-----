@@ -57,9 +57,7 @@ const search = (input) => {
   document.querySelectorAll(".mainItemCon").forEach((element) => {
     const trueFalse = [];
     element.querySelectorAll("article").forEach((element2) => {
-      if (element2.style.display) {
-        trueFalse.push(false);
-      } else {
+      if (!element2.style.display) {
         trueFalse.push(true);
       }
     });
