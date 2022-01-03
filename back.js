@@ -58,11 +58,13 @@ const search = (input) => {
       element.style.display = "none";
     }
   });
+  const allElmsVisible = [];
   document.querySelectorAll(".mainItemCon").forEach((element) => {
     const trueFalse = [];
     element.querySelectorAll("article").forEach((element2) => {
       if (!element2.style.display) {
         trueFalse.push(true);
+        allElmsVisible.push(true);
       }
     });
     if (!trueFalse.includes(true)) {
@@ -71,6 +73,11 @@ const search = (input) => {
       element.removeAttribute("Style");
     }
   });
+  if (allElmsVisible.length < 1) {
+    document.getElementById("noResult").classList.add("noResult");
+  } else {
+    document.getElementById("noResult").classList.remove("noResult");
+  }
 };
 // ------------------
 const execList = () => {
@@ -108,7 +115,10 @@ const execList = () => {
 <section class="mainItemCon" id="unItem">
   <p class="heading">Unknown</p>
   <section class="con"></section>
-</section>`;
+</section>
+<footer id="noResult">
+  <h1>No result found ):</h1>
+</footer>`;
   document.querySelector("body").append(elMain);
   const ownerItem = document.querySelector("#ownerItem > .con");
   const userItem = document.querySelector("#userItem > .con");

@@ -10,6 +10,26 @@ html {
   scroll-behavior: smooth;
 }
 
+#noResult {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  margin: auto;
+  overflow: hidden;
+  height: 100px;
+  opacity: 0;
+}
+
+#noResult h1 {
+  font-size: 3rem !important;
+}
+
+.noResult {
+  height: 85vh !important;
+  opacity: 1 !important;
+}
+
 body {
   color: #ddd;
   font-family: "Roboto", sans-serif;
@@ -26,7 +46,6 @@ body {
 }
 
 #listPage {
-  margin-bottom: 75px;
   text-align: center;
 }
 
@@ -78,13 +97,9 @@ body {
   letter-spacing: 1px;
   font-weight: 700;
   font-size: 1.5rem;
-  padding: 15px 0 5px;
+  padding: 10px 0 5px;
   color: #c9cecf;
   border-top: 3px solid #555555;
-}
-
-#listPage #ownerItem .heading {
-  border: 0 !important;
 }
 
 #listPage #ownerItem article .name {
@@ -122,6 +137,10 @@ body {
 
 #listPage #unItem article .name {
   color: #ffffff99;
+}
+
+#listPage .mainItemCon {
+  margin-bottom: 15px;
 }
 
 #listPage .mainItemCon .con {
@@ -253,10 +272,10 @@ header {
   position: sticky;
   top: 0;
   display: flex;
-  border-top: 2px solid #555555;
-  border-bottom: 3px solid #555555;
+  box-shadow: 0 0 7px #ffff00;
   background-color: #2f3136;
   width: 100%;
+  padding: 5px;
 }
 
 header #logOut {
@@ -268,6 +287,7 @@ header #logOut button {
   font-family: "Acme", sans-serif;
   font-size: 1.1rem;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
   transition: ease-in-out 300ms;
   color: #ed3d3e;

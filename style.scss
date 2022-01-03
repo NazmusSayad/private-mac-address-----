@@ -9,7 +9,23 @@ html {
   cursor: default;
   scroll-behavior: smooth;
 }
-
+#noResult {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  margin: auto;
+  overflow: hidden;
+  height: 100px;
+  opacity: 0;
+  h1 {
+    font-size: 3rem !important;
+  }
+}
+.noResult {
+  height: 85vh !important;
+  opacity: 1 !important;
+}
 body {
   color: #ddd;
   font-family: "Roboto", sans-serif;
@@ -23,7 +39,6 @@ body {
   box-sizing: border-box;
 }
 #listPage {
-  margin-bottom: 75px;
   text-align: center;
   #context {
     text-align: left;
@@ -67,14 +82,11 @@ body {
     letter-spacing: 1px;
     font-weight: 700;
     font-size: 1.5rem;
-    padding: 15px 0 5px;
-    color: rgb(201, 206, 207);
+    padding: 10px 0 5px;
+    color: #c9cecf;
     border-top: 3px solid rgb(85, 85, 85);
   }
   #ownerItem {
-    .heading {
-      border: 0 !important;
-    }
     article {
       .name {
         color: hsl(0, 100%, 80%);
@@ -118,6 +130,7 @@ body {
     }
   }
   .mainItemCon {
+    margin-bottom: 15px;
     .con {
       margin: 10px;
       display: grid;
@@ -214,10 +227,6 @@ body {
       font-size: 1.2rem;
     }
     .checkDiv {
-      // display: flex;
-      // width: max-content;
-      // margin: auto;
-      // align-items: center;
       margin-bottom: 10px;
       input {
         position: relative;
@@ -236,10 +245,10 @@ header {
   position: sticky;
   top: 0;
   display: flex;
-  border-top: 2px solid rgb(85, 85, 85);
-  border-bottom: 3px solid rgb(85, 85, 85);
+  box-shadow: 0 0 7px #ffff00;
   background-color: #2f3136;
   width: 100%;
+  padding: 5px;
   #logOut {
     text-align: center;
     width: fit-content;
@@ -247,6 +256,7 @@ header {
       font-family: "Acme", sans-serif;
       font-size: 1.1rem;
       border: none;
+      border-radius: 5px;
       cursor: pointer;
       transition: ease-in-out 300ms;
       color: #ed3d3e;
