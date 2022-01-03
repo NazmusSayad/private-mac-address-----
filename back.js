@@ -24,15 +24,19 @@ const verifyLog = (username, password) => {
   }
 };
 // ------------------
+const hideContext = function () {
+  document.querySelector("#context").style.display = "none";
+};
+// ------------------
 function showHide(self) {
   if (self.classList.contains("fa-eye")) {
     self.classList.add("fa-eye-slash");
     self.classList.remove("fa-eye");
-    self.parentNode.querySelector("#password").type = "text";
+    self.parentNode.querySelector("#password").type = "password";
   } else {
     self.classList.add("fa-eye");
     self.classList.remove("fa-eye-slash");
-    self.parentNode.querySelector("#password").type = "password";
+    self.parentNode.querySelector("#password").type = "text";
   }
 }
 // ------------------
@@ -153,9 +157,6 @@ const execList = () => {
         contextMenu.style.display = "block";
         contextArticle = this;
       };
-      const hideContext = function () {
-        document.querySelector("#context").removeAttribute("Style");
-      };
       contextMenu.onclick = () => {
         const tar = event.target.getAttribute("item");
         switch (tar) {
@@ -166,10 +167,9 @@ const execList = () => {
             setAndRemoveAt(contextArticle.querySelector(".mac"));
             break;
         }
-        console.log(contextArticle);
         hideContext();
       };
-      document.onclick = hideContext;
+      document.addEventListener("click", hideContext);
       if (item.name.slice(0, 1) === "-") {
         elArticle.querySelector(".name span").innerHTML = item.name.slice(1);
         unItem.append(elArticle);
@@ -215,8 +215,12 @@ const execLogin = () => {
       <label for="pass"></label>
       <i class="fas icon fa-lock"></i>
       <input oncopy="event.preventDefault()" oncut="event.preventDefault()" onpaste="event.preventDefault()" type="password" id="password" name="password" placeholder="Password" required />
-      <i onclick="showHide(this)" class="eye fas fa-eye"></i>
-     </div>
+      <i onclick="showHide(this)" class="eye fas fa-eye-slash"></i>
+    </div>
+    <div class="checkDiv">
+      <input type="checkbox" id="check" checked="true" name="check">
+      <span>Stay logged in</span>
+    </div>
     <div>
       <button id="btn" type="submit">Sign in</button>
     </div>
@@ -231,7 +235,9 @@ const execLogin = () => {
     event.preventDefault();
     if (verifyLog(this.username.value, this.password.value)) {
       document.querySelector("main").remove();
-      localStorage.setItem("mac", JSON.stringify({ u: this.username.value, p: this.password.value }));
+      if (this.check.checked) {
+        localStorage.setItem("mac", JSON.stringify({ u: this.username.value, p: this.password.value }));
+      }
       execList();
       return;
     }
@@ -243,6 +249,7 @@ const execLogin = () => {
 };
 // ------------------
 function logOut() {
+  document.removeEventListener("click", hideContext);
   document.title = "Logging Out...";
   localStorage.clear();
   document.querySelector("main").remove();

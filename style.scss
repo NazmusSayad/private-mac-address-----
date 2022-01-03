@@ -181,10 +181,15 @@ body {
     .eye {
       position: absolute;
       margin-left: -35px;
-      margin-top: 9px;
+      margin-top: 4px;
       color: #a7abb8;
       width: 35px;
       cursor: pointer;
+      transition: color 300ms;
+      padding: 5px;
+      &:hover {
+        color: #555861;
+      }
     }
     .icon {
       font-size: 1.1rem;
@@ -205,8 +210,25 @@ body {
       }
       border-radius: 5px;
       cursor: pointer;
-      padding: 5px 10px;
+      padding: 7px 15px;
       font-size: 1.2rem;
+    }
+    .checkDiv {
+      // display: flex;
+      // width: max-content;
+      // margin: auto;
+      // align-items: center;
+      margin-bottom: 10px;
+      input {
+        position: relative;
+        top: 1px;
+        padding: 0;
+        margin: 0;
+      }
+      span {
+        padding-left: 2px;
+        font-size: 14px !important;
+      }
     }
   }
 }

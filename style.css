@@ -195,10 +195,16 @@ body {
 #logInPage #loginBody .eye {
   position: absolute;
   margin-left: -35px;
-  margin-top: 9px;
+  margin-top: 4px;
   color: #a7abb8;
   width: 35px;
   cursor: pointer;
+  transition: color 300ms;
+  padding: 5px;
+}
+
+#logInPage #loginBody .eye:hover {
+  color: #555861;
 }
 
 #logInPage #loginBody .icon {
@@ -219,12 +225,28 @@ body {
 #logInPage #loginBody #btn {
   border-radius: 5px;
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 7px 15px;
   font-size: 1.2rem;
 }
 
 #logInPage #loginBody #btn:active {
   opacity: 0.5;
+}
+
+#logInPage #loginBody .checkDiv {
+  margin-bottom: 10px;
+}
+
+#logInPage #loginBody .checkDiv input {
+  position: relative;
+  top: 1px;
+  padding: 0;
+  margin: 0;
+}
+
+#logInPage #loginBody .checkDiv span {
+  padding-left: 2px;
+  font-size: 14px !important;
 }
 
 header {
