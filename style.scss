@@ -9,23 +9,6 @@ html {
   cursor: default;
   scroll-behavior: smooth;
 }
-#noResult {
-  text-align: center;
-  display: flex;
-  align-items: center;
-  width: max-content;
-  margin: auto;
-  overflow: hidden;
-  height: 100px;
-  opacity: 0;
-  h1 {
-    font-size: 3rem !important;
-  }
-}
-.noResult {
-  height: 85vh !important;
-  opacity: 1 !important;
-}
 body {
   color: #ddd;
   font-family: "Roboto", sans-serif;
@@ -40,14 +23,31 @@ body {
 }
 #listPage {
   text-align: center;
+  #noResult {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    width: max-content;
+    margin: auto;
+    overflow: hidden;
+    height: 70px;
+    opacity: 0;
+    h1 {
+      font-size: 3rem !important;
+    }
+  }
+  .noResult {
+    height: 85vh !important;
+    opacity: 1 !important;
+  }
   #context {
     text-align: left;
     width: max-content;
     display: none;
     position: fixed;
     z-index: 100;
-    box-shadow: 0 0 3px 0 #d8c1d8;
-    border-radius: 3px;
+    box-shadow: 0 0 3px 0 #d8c1d888;
+    border-radius: 1px;
     background-color: #39393b;
     font-family: "Rubik", sans-serif;
     font-weight: 600;
@@ -87,6 +87,9 @@ body {
     border-top: 3px solid rgb(85, 85, 85);
   }
   #ownerItem {
+    .con {
+      grid-template-columns: repeat(3, 1fr);
+    }
     article {
       .name {
         color: hsl(0, 100%, 80%);
