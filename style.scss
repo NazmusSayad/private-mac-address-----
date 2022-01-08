@@ -8,11 +8,15 @@ html {
   background-color: #202124;
   cursor: default;
   scroll-behavior: smooth;
-  max-width: 100vw;
 }
 body {
   color: #ddd;
   font-family: "Roboto", sans-serif;
+}
+
+main {
+  overflow: hidden;
+  width: 100vw;
 }
 ::-webkit-scrollbar {
   width: 0px;
