@@ -338,18 +338,14 @@ noscript {
   text-align: center;
 }
 
-@media screen and (max-width: 12in) {
-  /* Mini Laptop | 8in - 12in */
-}
-
-@media screen and (max-width: 8in) {
+@media screen and (max-width: 1160px) {
   /* Tablet | 4in - 8in | */
   .mainItemCon .con {
     grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 870px) {
   /* Mobile | 0 - 2in */
   .mainItemCon .con {
     grid-template-columns: repeat(2, 1fr) !important;
