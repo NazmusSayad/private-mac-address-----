@@ -5,8 +5,8 @@
     <link id="favicon" rel="shortcut icon" href="/media/ico.png" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" />
     <link rel="stylesheet" href="/style.css" />
-    <script src="/back.js"></script>
-    <script defer src="/main.js"></script>
+    <!-- <script src="/back.js"></script>
+    <script defer src="/main.js"></script> -->
   </head>
   <body>
     <noscript>
@@ -14,5 +14,12 @@
       <br />
       <h2>Really you don't have JavaScript Enabled Browser??</h2>
     </noscript>
+    <div id="testdiv" style="height: 1in; left: -100%; position: absolute; top: -100%; width: 1in"></div>
+    <script type="text/javascript">
+      dpi_x = document.getElementById("testdiv").offsetWidth;
+      dpi_y = document.getElementById("testdiv").offsetHeight;
+
+      document.body.innerHTML = dpi_x + " " + dpi_y;
+    </script>
   </body>
 </html>

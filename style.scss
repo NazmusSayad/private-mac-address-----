@@ -306,14 +306,14 @@ noscript {
   text-align: center;
 }
 
-@media screen and (max-width: 1160px) {
-  /* Tablet | 4in - 8in | */
-  .mainItemCon {
-    .con {
-      grid-template-columns: repeat(3, 1fr) !important;
-    }
-  }
-}
+// @media screen and (max-width: 1160px) {
+//   /* Tablet | 4in - 8in | */
+//   .mainItemCon {
+//     .con {
+//       grid-template-columns: repeat(3, 1fr) !important;
+//     }
+//   }
+// }
 @media screen and (max-width: 870px) {
   /* Mobile | 0 - 2in */
   .mainItemCon {
