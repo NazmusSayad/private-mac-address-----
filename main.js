@@ -7,5 +7,3 @@ if (!macStatus) {
   execList();
 }
 // ------------------
-document.body.innerHTML = devicePixelRatio;
-// document.body.innerHTML = screen.height + " " + screen.width;
