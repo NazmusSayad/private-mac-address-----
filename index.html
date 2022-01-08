@@ -14,10 +14,10 @@
       <br />
       <h2>Really you don't have JavaScript Enabled Browser??</h2>
     </noscript>
-    <div id="testdiv" style="height: 1in; left: -100%; position: absolute; top: -100%; width: 1in"></div>
+    <div id="testdiv" style="height: 1rem; left: -100%; position: absolute; top: -100%; width: 1rem"></div>
     <script type="text/javascript">
-      dpi_x = document.querySelector("html").offsetWidth;
-      dpi_y = document.querySelector("html").offsetHeight;
+      dpi_x = document.querySelector("#testdiv").offsetWidth;
+      dpi_y = document.querySelector("#testdiv").offsetHeight;
       console.log();
       document.body.innerHTML = dpi_x + " " + "|" + outerWidth + "|" + devicePixelRatio;
     </script>
