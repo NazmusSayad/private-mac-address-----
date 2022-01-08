@@ -279,7 +279,7 @@ header {
   display: flex;
   box-shadow: 0 0 10px #806e6e;
   background-color: #2f3136;
-  width: 100%;
+  width: 100vw;
   padding: 5px;
 }
 
