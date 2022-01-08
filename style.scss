@@ -305,19 +305,23 @@ header {
 noscript {
   text-align: center;
 }
-@media screen and (max-width: 1100px) {
-  /*-- When using Tablet || Smaller than 1000px --*/
+
+@media screen and (max-width: 10in) {
+  /* When using Laptop | Smaller than 10in */
   .mainItemCon {
     .con {
       grid-template-columns: repeat(3, 1fr) !important;
     }
   }
 }
-@media screen and (max-width: 850px) {
-  /*-- When using Tablet || Smaller than 1000px --*/
+@media screen and (max-width: 5in) {
+  /* When using Tablet | Smaller than 5in */
   .mainItemCon {
     .con {
       grid-template-columns: repeat(2, 1fr) !important;
     }
   }
+}
+@media screen and (max-width: 2in) {
+  /* When using Mobile | Smaller than 2in */
 }
