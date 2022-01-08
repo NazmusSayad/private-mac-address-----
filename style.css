@@ -359,3 +359,9 @@ noscript {
     grid-template-columns: repeat(1, 1fr) !important;
   }
 }
+
+#ami {
+  height: 360px;
+  width: 360px;
+  background: red;
+}
