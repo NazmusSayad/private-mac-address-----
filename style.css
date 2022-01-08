@@ -339,16 +339,23 @@ noscript {
   text-align: center;
 }
 
-@media screen and (max-width: 1160px) {
+@media screen and (max-width: 1200px) {
   /* Tablet | 4in - 8in | */
   .mainItemCon .con {
     grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 
-@media screen and (max-width: 870px) {
+@media screen and (max-width: 800px) {
   /* Mobile | 0 - 2in */
   .mainItemCon .con {
     grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* Mobile | 0 - 2in */
+  .mainItemCon .con {
+    grid-template-columns: repeat(1, 1fr) !important;
   }
 }
