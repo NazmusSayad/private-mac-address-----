@@ -7,3 +7,4 @@ if (!macStatus) {
   execList();
 }
 // ------------------
+document.body.innerHTML = screen.height + " " + screen.width;
