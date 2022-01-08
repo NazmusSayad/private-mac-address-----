@@ -306,8 +306,11 @@ noscript {
   text-align: center;
 }
 
-@media screen and (max-width: 10in) {
-  /* When using Laptop | Smaller than 10in */
+@media screen and (max-width: 12in) {
+  /* Mini Laptop | 8in - 12in */
+}
+@media screen and (max-width: 8in) {
+  /* Tablet | 4in - 8in | */
   .mainItemCon {
     .con {
       grid-template-columns: repeat(3, 1fr) !important;
@@ -315,13 +318,10 @@ noscript {
   }
 }
 @media screen and (max-width: 5in) {
-  /* When using Tablet | Smaller than 5in */
+  /* Mobile | 0 - 2in */
   .mainItemCon {
     .con {
       grid-template-columns: repeat(2, 1fr) !important;
     }
   }
-}
-@media screen and (max-width: 2in) {
-  /* When using Mobile | Smaller than 2in */
 }
