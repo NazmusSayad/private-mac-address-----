@@ -1,9 +1,10 @@
-document.addEventListener("contextmenu", epd);
-document.addEventListener("dragstart", epd);
+const macStatus = (() => {
+  return verifyLog(nGetCookie("u"), nGetCookie("p"))
+})()
 // ------------------
-if (!macStatus) {
-  execLogin();
-} else if (macStatus.u && macStatus.p && verifyLog(macStatus.u, macStatus.p)) {
-  execList();
-}
+let contextArticle
+document.addEventListener("contextmenu", epd)
+document.addEventListener("dragstart", epd)
+// ------------------
+macStatus ? execList() : execLogin()
 // ------------------

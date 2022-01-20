@@ -1,89 +1,86 @@
-const macStatus = JSON.parse(localStorage.getItem("mac"));
-let contextArticle;
-// ------------------
 const newComp = (parent = "div", innerH = "", classs = "", iddd = "") => {
   if (typeof parent !== "string" || typeof innerH !== "string" || typeof iddd !== "string" || typeof classs !== "string") {
-    return null;
+    return null
   }
-  const parentE = document.createElement(parent);
+  const parentE = document.createElement(parent)
   if (classs !== "") {
-    parentE.setAttribute("class", classs);
+    parentE.setAttribute("class", classs)
   }
   if (iddd !== "") {
-    parentE.setAttribute("id", iddd);
+    parentE.setAttribute("id", iddd)
   }
-  parentE.innerHTML = innerH.trim();
-  return parentE;
-};
+  parentE.innerHTML = innerH.trim()
+  return parentE
+}
 // ------------------
 const verifyLog = (username, password) => {
   if (username.toLowerCase() == "nazmussayad" && password == "ami kida") {
-    return true;
+    return true
   } else {
-    return false;
+    return false
   }
-};
+}
 // ------------------
 const hideContext = function () {
-  document.querySelector("#context").style.display = "none";
-};
+  document.querySelector("#context").style.display = "none"
+}
 // ------------------
 function showHide(self) {
   if (self.classList.contains("fa-eye")) {
-    self.classList.add("fa-eye-slash");
-    self.classList.remove("fa-eye");
-    self.parentNode.querySelector("#password").type = "password";
+    self.classList.add("fa-eye-slash")
+    self.classList.remove("fa-eye")
+    self.parentNode.querySelector("#password").type = "password"
   } else {
-    self.classList.add("fa-eye");
-    self.classList.remove("fa-eye-slash");
-    self.parentNode.querySelector("#password").type = "text";
+    self.classList.add("fa-eye")
+    self.classList.remove("fa-eye-slash")
+    self.parentNode.querySelector("#password").type = "text"
   }
 }
 // ------------------
 function epd() {
-  event.preventDefault();
+  event.preventDefault()
 }
 // ------------------
 const search = (input) => {
   document.querySelectorAll(".mainItemCon article").forEach((element) => {
-    const bullll = [];
+    const bullll = []
     input.value.split(" ").forEach((find) => {
-      bullll.push(element.tag.includes(find));
-    });
-    const bulset = Array.from(new Set(bullll));
-    const bulbul = bulset.length === 1 && bulset[0] === true;
+      bullll.push(element.tag.includes(find))
+    })
+    const bulset = Array.from(new Set(bullll))
+    const bulbul = bulset.length === 1 && bulset[0] === true
     if (bulbul) {
-      element.removeAttribute("Style");
+      element.removeAttribute("Style")
     } else {
-      element.style.display = "none";
+      element.style.display = "none"
     }
-  });
-  const allElmsVisible = [];
+  })
+  const allElmsVisible = []
   document.querySelectorAll(".mainItemCon").forEach((element) => {
-    const trueFalse = [];
+    const trueFalse = []
     element.querySelectorAll("article").forEach((element2) => {
       if (!element2.style.display) {
-        trueFalse.push(true);
-        allElmsVisible.push(true);
+        trueFalse.push(true)
+        allElmsVisible.push(true)
       }
-    });
+    })
     if (!trueFalse.includes(true)) {
-      element.style.display = "none";
+      element.style.display = "none"
     } else {
-      element.removeAttribute("Style");
+      element.removeAttribute("Style")
     }
-  });
+  })
   if (allElmsVisible.length < 1) {
-    document.getElementById("noResult").classList.add("noResult");
+    document.getElementById("noResult").classList.add("noResult")
   } else {
-    document.getElementById("noResult").classList.remove("noResult");
+    document.getElementById("noResult").classList.remove("noResult")
   }
-};
+}
 // ------------------
 const execList = () => {
-  document.title = "MAC Addresses ";
-  const elMain = document.createElement("main");
-  elMain.setAttribute("id", `listPage`);
+  document.title = "MAC Addresses "
+  const elMain = document.createElement("main")
+  elMain.setAttribute("id", `listPage`)
   elMain.innerHTML = `
 <header>      
 <section class="search">
@@ -118,99 +115,99 @@ const execList = () => {
 </section>
 <footer id="noResult">
   <h1>No result found ):</h1>
-</footer>`;
-  document.querySelector("body").append(elMain);
-  const ownerItem = document.querySelector("#ownerItem > .con");
-  const userItem = document.querySelector("#userItem > .con");
-  const otherItem = document.querySelector("#otherItem > .con");
-  const unItem = document.querySelector("#unItem > .con");
+</footer>`
+  document.querySelector("body").append(elMain)
+  const ownerItem = document.querySelector("#ownerItem > .con")
+  const userItem = document.querySelector("#userItem > .con")
+  const otherItem = document.querySelector("#otherItem > .con")
+  const unItem = document.querySelector("#unItem > .con")
   function setAndRemoveAt(par) {
-    par.style.color = "red";
+    par.style.color = "red"
     setTimeout(() => {
-      par.removeAttribute("Style");
-    }, 300);
-    navigator.clipboard.writeText(par.textContent.trim());
+      par.removeAttribute("Style")
+    }, 300)
+    navigator.clipboard.writeText(par.textContent.trim())
   }
   fetch("/list.json")
     .then((res) => res.json())
-    .then((data) => asdfghjkl(data));
+    .then((data) => asdfghjkl(data))
   function asdfghjkl(data) {
-    data.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0));
+    data.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
     data.forEach((item) => {
-      item.name = item.name.replace(/\s+/g, "");
-      item.mac = item.mac.replace(/\s+/g, "");
+      item.name = item.name.replace(/\s+/g, "")
+      item.mac = item.mac.replace(/\s+/g, "")
       if (item.date) {
-        item.date = item.date.replace(/\s+/g, "");
+        item.date = item.date.replace(/\s+/g, "")
       }
       if (item.tag) {
-        item.tag = item.tag.replace(/\s+/g, "");
+        item.tag = item.tag.replace(/\s+/g, "")
       }
-      const elArticle = document.createElement("article");
+      const elArticle = document.createElement("article")
       elArticle.innerHTML = `<div class="name"><span class="bull">${item.name}</span></div> <div class="mac">${item.mac}</div> <div class="p">${
         item.date || ""
-      }</div>`;
-      elArticle.tag = (item.name + " " + item.mac + " " + (item.date || "") + " " + (item.tag || "")).toLowerCase();
+      }</div>`
+      elArticle.tag = (item.name + " " + item.mac + " " + (item.date || "") + " " + (item.tag || "")).toLowerCase()
       elArticle.onclick = function () {
-        const bull = event.target.classList.contains("bull");
+        const bull = event.target.classList.contains("bull")
         if (bull) {
-          setAndRemoveAt(event.target);
+          setAndRemoveAt(event.target)
         } else {
-          setAndRemoveAt(this.querySelector(".mac"));
+          setAndRemoveAt(this.querySelector(".mac"))
         }
-      };
-      const contextMenu = document.querySelector("#context");
+      }
+      const contextMenu = document.querySelector("#context")
       elArticle.oncontextmenu = function () {
-        const t = event.clientY;
-        const l = event.clientX;
-        contextMenu.style.top = t - 1 + "px";
-        contextMenu.style.left = l - 1 + "px";
-        contextMenu.style.display = "block";
-        contextArticle = this;
-      };
+        const t = event.clientY
+        const l = event.clientX
+        contextMenu.style.top = t - 1 + "px"
+        contextMenu.style.left = l - 1 + "px"
+        contextMenu.style.display = "block"
+        contextArticle = this
+      }
       contextMenu.onclick = () => {
-        const tar = event.target.getAttribute("item");
+        const tar = event.target.getAttribute("item")
         switch (tar) {
           case "name":
-            setAndRemoveAt(contextArticle.querySelector(".name"));
-            break;
+            setAndRemoveAt(contextArticle.querySelector(".name"))
+            break
           case "mac":
-            setAndRemoveAt(contextArticle.querySelector(".mac"));
-            break;
+            setAndRemoveAt(contextArticle.querySelector(".mac"))
+            break
         }
-        hideContext();
-      };
-      document.addEventListener("click", hideContext);
+        hideContext()
+      }
+      document.addEventListener("click", hideContext)
       if (item.name.slice(0, 1) === "-") {
-        elArticle.querySelector(".name span").innerHTML = item.name.slice(1);
-        unItem.append(elArticle);
-        elArticle.tag += "unknownfaltuajairakidacininaoporichitojaninaetc";
-        return;
+        elArticle.querySelector(".name span").innerHTML = item.name.slice(1)
+        unItem.append(elArticle)
+        elArticle.tag += "unknownfaltuajairakidacininaoporichitojaninaetc"
+        return
       }
       switch (item.date) {
         case "♔":
-          ownerItem.append(elArticle);
-          elArticle.tag += "ownersamimemyselfsayadnazmusbabuthis";
-          break;
+          ownerItem.append(elArticle)
+          elArticle.tag += "ownersamimemyselfsayadnazmusbabuthis"
+          break
         case "":
-          otherItem.append(elArticle);
-          elArticle.tag += "othersbakiextramorepublicpeoplesobaietc";
-          break;
+          otherItem.append(elArticle)
+          elArticle.tag += "othersbakiextramorepublicpeoplesobaietc"
+          break
         case undefined:
-          otherItem.append(elArticle);
-          elArticle.tag += "othersbakiextramorepublicpeoplesobaietc";
-          break;
+          otherItem.append(elArticle)
+          elArticle.tag += "othersbakiextramorepublicpeoplesobaietc"
+          break
         default:
-          userItem.append(elArticle);
-          elArticle.tag += "usersbaboharkarisprotebeshionnoraverifiederror";
-          break;
+          userItem.append(elArticle)
+          elArticle.tag += "usersbaboharkarisprotebeshionnoraverifiederror"
+          break
       }
-    });
-    document.querySelector(".crossIcon").click();
+    })
+    document.querySelector(".crossIcon").click()
   }
-};
+}
 // ------------------
 const execLogin = () => {
-  document.title = "Admin-Login";
+  document.title = "Admin-Login"
   const elLogInPage = newComp(
     "main",
     `
@@ -238,32 +235,34 @@ const execLogin = () => {
   </div>`,
     "",
     "logInPage"
-  );
-  document.querySelector("body").prepend(elLogInPage);
-  const logInForm = document.getElementById("loginBody");
+  )
+  document.querySelector("body").prepend(elLogInPage)
+  const logInForm = document.getElementById("loginBody")
   logInForm.onsubmit = function () {
-    event.preventDefault();
+    event.preventDefault()
     if (verifyLog(this.username.value, this.password.value)) {
-      document.querySelector("main").remove();
+      document.querySelector("main").remove()
       if (this.check.checked) {
-        localStorage.setItem("mac", JSON.stringify({ u: this.username.value, p: this.password.value }));
+        nSetCookie("u", this.username.value)
+        nSetCookie("p", this.password.value)
       }
-      execList();
-      return;
+      execList()
+      return
     }
-    this.username.focus();
-    alert("Wrong information!");
-    this.username.value = "";
-    this.password.value = "";
-  };
-};
+    this.username.focus()
+    alert("Wrong information!")
+    this.username.value = ""
+    this.password.value = ""
+  }
+}
 // ------------------
 function logOut() {
-  document.removeEventListener("click", hideContext);
-  document.title = "Logging Out...";
-  localStorage.clear();
-  document.querySelector("main").remove();
+  document.removeEventListener("click", hideContext)
+  document.title = "Logging Out..."
+  nSetCookie("u")
+  nSetCookie("p")
+  document.querySelector("main").remove()
   setTimeout(() => {
-    execLogin();
-  }, 500);
+    execLogin()
+  }, 500)
 }
