@@ -1,18 +1,3 @@
-const newComp = (parent = "div", innerH = "", classs = "", iddd = "") => {
-  if (typeof parent !== "string" || typeof innerH !== "string" || typeof iddd !== "string" || typeof classs !== "string") {
-    return null
-  }
-  const parentE = document.createElement(parent)
-  if (classs !== "") {
-    parentE.setAttribute("class", classs)
-  }
-  if (iddd !== "") {
-    parentE.setAttribute("id", iddd)
-  }
-  parentE.innerHTML = innerH.trim()
-  return parentE
-}
-// ------------------
 const verifyLog = (username, password) => {
   if (username.toLowerCase() == "nazmussayad" && password == "ami kida") {
     return true
@@ -21,11 +6,11 @@ const verifyLog = (username, password) => {
   }
 }
 // ------------------
-const hideContext = function () {
+const hideContext = () => {
   document.querySelector("#context").style.display = "none"
 }
 // ------------------
-function showHide(self) {
+const showHide = (self) => {
   if (self.classList.contains("fa-eye")) {
     self.classList.add("fa-eye-slash")
     self.classList.remove("fa-eye")
@@ -37,7 +22,15 @@ function showHide(self) {
   }
 }
 // ------------------
-function epd() {
+const setAndRemoveAt = (par) => {
+  par.style.color = "red"
+  setTimeout(() => {
+    par.removeAttribute("Style")
+  }, 300)
+  navigator.clipboard.writeText(par.textContent.trim())
+}
+// ------------------
+const epd = () => {
   event.preventDefault()
 }
 // ------------------
@@ -93,9 +86,9 @@ const execList = () => {
 </section>
 </header>
 <div id="context">
-  <div item="name" class="item"><i><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg></i> Name</div>
+  <div item="name" class="name item"><i><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg></i> Name</div>
   <div class="div"></div>
-  <div item="mac" class="item"><i><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg></i> Mac</div>
+  <div item="mac" class="mac item"><i><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="copy" class="svg-inline--fa fa-copy fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M320 448v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V120c0-13.255 10.745-24 24-24h72v296c0 30.879 25.121 56 56 56h168zm0-344V0H152c-13.255 0-24 10.745-24 24v368c0 13.255 10.745 24 24 24h272c13.255 0 24-10.745 24-24V128H344c-13.2 0-24-10.8-24-24zm120.971-31.029L375.029 7.029A24 24 0 0 0 358.059 0H352v96h96v-6.059a24 24 0 0 0-7.029-16.97z"></path></svg></i> Mac</div>
 </div>
 <section class="mainItemCon" id="ownerItem">
   <p class="heading">♔ Owner ♔</p>
@@ -121,17 +114,8 @@ const execList = () => {
   const userItem = document.querySelector("#userItem > .con")
   const otherItem = document.querySelector("#otherItem > .con")
   const unItem = document.querySelector("#unItem > .con")
-  function setAndRemoveAt(par) {
-    par.style.color = "red"
-    setTimeout(() => {
-      par.removeAttribute("Style")
-    }, 300)
-    navigator.clipboard.writeText(par.textContent.trim())
-  }
-  fetch("/data.json")
-    .then((res) => res.json())
-    .then((data) => asdfghjkl(data))
-  function asdfghjkl(data) {
+
+  nJSON("/data.json", (data) => {
     data.sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
     data.forEach((item) => {
       item.name = item.name.replace(/\s+/g, "")
@@ -164,16 +148,12 @@ const execList = () => {
         contextMenu.style.display = "block"
         contextArticle = this
       }
-      contextMenu.onclick = () => {
-        const tar = event.target.getAttribute("item")
-        switch (tar) {
-          case "name":
-            setAndRemoveAt(contextArticle.querySelector(".name"))
-            break
-          case "mac":
-            setAndRemoveAt(contextArticle.querySelector(".mac"))
-            break
-        }
+      contextMenu.querySelector(".name").onclick = function () {
+        setAndRemoveAt(contextArticle.querySelector(".name"))
+        hideContext()
+      }
+      contextMenu.querySelector(".mac").onclick = function () {
+        setAndRemoveAt(contextArticle.querySelector(".mac"))
         hideContext()
       }
       document.addEventListener("click", hideContext)
@@ -203,12 +183,12 @@ const execList = () => {
       }
     })
     document.querySelector(".crossIcon").click()
-  }
+  })
 }
 // ------------------
 const execLogin = () => {
   document.title = "Admin-Login"
-  const elLogInPage = newComp(
+  const elLogInPage = nHTML(
     "main",
     `
   <div id="loginPanel">
@@ -243,8 +223,8 @@ const execLogin = () => {
     if (verifyLog(this.username.value, this.password.value)) {
       document.querySelector("main").remove()
       if (this.check.checked) {
-        nCookie("u", this.username.value)
-        nCookie("p", this.password.value)
+        nCookie("u", this.username.value, 356)
+        nCookie("p", this.password.value, 356)
       }
       execList()
       return
@@ -256,7 +236,7 @@ const execLogin = () => {
   }
 }
 // ------------------
-function logOut() {
+const logOut = () => {
   document.removeEventListener("click", hideContext)
   document.title = "Logging Out..."
   nCookie("u", 0)
