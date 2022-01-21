@@ -37,9 +37,12 @@ const epd = () => {
 const search = (input) => {
   document.querySelectorAll(".mainItemCon article").forEach((element) => {
     const bullll = []
-    input.value.split(" ").forEach((find) => {
-      bullll.push(element.tag.includes(find))
-    })
+    input.value
+      .toLowerCase()
+      .split(" ")
+      .forEach((find) => {
+        bullll.push(element.tag.includes(find))
+      })
     const bulset = Array.from(new Set(bullll))
     const bulbul = bulset.length === 1 && bulset[0] === true
     if (bulbul) {
