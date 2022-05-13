@@ -1,0 +1,22 @@
+$color-dark: #212121;
+$color-dark1: #232931;
+$color-dark2: #393e46;
+$color-green: #4ecca3;
+$color-greenGray: #6d9886;
+$color-orange: #f66b0e;
+$color-orange1: #ff8c32;
+$color-sweet: #d9cab3;
+$color-white: #eeeeee;
+$color-whitePlus: #f6f6f6;
+
+@keyframes fade_in_out {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
