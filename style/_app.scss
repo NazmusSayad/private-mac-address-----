@@ -1,2 +1,18 @@
+[main_content] {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.25s, transform 0.45s;
+  overflow: auto;
+
+  &.active {
+    transition: opacity 2s, transform 0.35s;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@import "parts/image";
 @import "parts/login";
-@import "parts/panel";
+@import "parts/main";
