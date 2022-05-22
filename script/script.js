@@ -41,3 +41,20 @@ const html = (innerH = "", iddd = "") => {
   parentE.setAttribute("main_content", "")
   return parentE
 }
+
+const pimple = function (self) {
+  const circle = document.createElement("div")
+  const x = event.layerX
+  const y = event.layerY
+
+  // return console.log(x, y)
+  circle.classList.add("spare")
+
+  circle.style.left = `${x}px`
+  circle.style.top = `${y}px`
+
+  self.appendChild(circle)
+  circle.onanimationend = () => {
+    circle.remove()
+  }
+}

@@ -1,26 +1,80 @@
-#warning {
-  padding-top: 12vh;
-}
-
-.warning {
-  &__heading {
-    color: $color-orange;
-  }
-}
-
 #login {
   padding: 17vh 2rem;
 }
 
-.login {
-  // width: fit-content;
+#login .login {
   background: $color-dark1;
-  border-radius: 1rem;
-  height: 632px;
-  width: 1020px;
-
+  border-radius: 0.75rem;
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 800px;
+  width: fit-content;
+  padding: 1.75rem;
+
   & > * {
-    flex: 1;
+    padding: 2.25rem;
+    flex: auto;
+  }
+
+  &__form {
+    // flex: 4;
+
+    input {
+      margin-bottom: 1.7rem;
+    }
+
+    input,
+    button {
+      width: 100%;
+      background: $color-dark;
+      outline: 0;
+      border: 0;
+      padding: 1rem 1.5rem;
+      border-radius: 0.5rem;
+    }
+
+    &--usernameBox {
+    }
+
+    &--passwordBox {
+    }
+
+    &--loginBox {
+      button {
+        cursor: pointer;
+        background-color: $color-green2;
+        transition: 0.2s;
+        position: relative;
+        overflow: hidden;
+
+        &:hover {
+          background: $color-green;
+        }
+      }
+    }
+  }
+
+  &__details {
+    // flex: 5;
+    // width: 100%;
+    border-spacing: 0;
+
+    &--item {
+      padding: 5rem;
+
+      &:nth-child(odd) {
+        background: #00000025;
+      }
+
+      .name {
+        text-align: left;
+        padding-right: 3.5rem;
+      }
+
+      .data {
+        text-align: right;
+      }
+    }
   }
 }

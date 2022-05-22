@@ -1,0 +1,9 @@
+#warning {
+  padding-top: 12vh;
+}
+
+#warning .warning {
+  &__heading {
+    color: $color-orange;
+  }
+}
