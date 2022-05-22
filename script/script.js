@@ -1,37 +1,106 @@
 const navigation = {
-  warning: function (a = "") {
-    this.append_new_item("warning")
+  warning: async function (a = "") {
+    this.old = document.querySelector("[main_content]")
+    const name = "warning"
+    if (this.check_if_current_is_old(name)) return
+
+    const element = html(
+      `<div class="---wrapper--- warning">
+    <h1 class="warning__heading">Attention!!</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, eaque?</p>
+    <button onclick="navigation.login()" >Lorem, ipsum.</button>
+  </div>`,
+      name
+    )
+    DOM.main.appendChild(element)
+    this.append_new_item(name)
   },
 
-  login: function () {
-    this.append_new_item("login")
+  login: async function () {
+    this.old = document.querySelector("[main_content]")
+    const name = "login"
+    if (this.check_if_current_is_old(name)) return
+
+    const element = html(
+      `<div class="---wrapper--- login">
+    <form onsubmit="return false" class="login__form">
+      <div class="login__form--usernameBox">
+        <input required placeholder="Username" type="text" name="Username" />
+      </div>
+
+      <div class="login__form--passwordBox">
+        <input required placeholder="Password" type="password" name="Password" />
+      </div>
+
+      <div class="login__form--loginBox">
+        <button onclick="pimple(this)" type="submit">
+          <span>Login</span>
+        </button>
+      </div>
+    </form>
+
+    <article class="login__details">
+      <p class="login__details--heading">103.154.16.0</p>
+
+      <table>
+        <tbody>
+          <tr class="login__details--item">
+            <td class="name">City</td>
+            <td class="clone">:</td>
+            <td class="data">asdf</td>
+          </tr>
+          <tr class="login__details--item">
+            <td class="name">region</td>
+            <td class="clone">:</td>
+            <td class="data">asdf</td>
+          </tr>
+          <tr class="login__details--item">
+            <td class="name">country_name</td>
+            <td class="clone">:</td>
+            <td class="data">asdf</td>
+          </tr>
+          <tr class="login__details--item">
+            <td class="name">asn_org</td>
+            <td class="clone">:</td>
+            <td class="data">asdf</td>
+          </tr>
+        </tbody>
+      </table>
+    </article>
+  </div>`,
+      name
+    )
+    DOM.main.appendChild(element)
+    this.append_new_item(name)
   },
 
-  main: function () {
-    this.append_new_item("main")
+  main: async function () {
+    this.old = document.querySelector("[main_content]")
+    const name = "main"
+    if (this.check_if_current_is_old(name)) return
+
+    const element = html(`Main`, name)
+    DOM.main.appendChild(element)
+    this.append_new_item(name)
   },
 
   append_new_item: function (name) {
-    DOM.main.appendChild(HTML[name])
     setTimeout(() => {
       DOM.animated_image.className = name
       document.querySelector(`#${name}`).classList.add("active")
     }, 100)
 
-    this.remove_old_item(name)
-  },
-
-  remove_old_item: function (except) {
-    if (this.current && this.current !== except) {
-      HTML[this.current].classList.remove("active")
+    if (this.old) {
+      this.old.classList.remove("active")
 
       setTimeout(() => {
-        HTML[this.current].remove()
-        this.current = except
+        this.old.remove()
       }, 500)
-    } else {
-      this.current = except
     }
+  },
+
+  check_if_current_is_old: function (name) {
+    return this.old && this.old.getAttribute("id") === name
   },
 }
 const html = (innerH = "", iddd = "") => {
@@ -58,3 +127,4 @@ const pimple = function (self) {
     circle.remove()
   }
 }
+// https://json.geoiplookup.io/

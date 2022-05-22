@@ -11,12 +11,11 @@ html {
 }
 
 body {
-  font-family: "Lato", sans-serif;
   font-size: 1.6rem;
   background: $color-dark;
   color: $color-whitePlus;
   text-align: center;
-  // font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 /* html,
@@ -39,5 +38,3 @@ button {
   margin-left: auto;
   margin-right: auto;
 }
-
-

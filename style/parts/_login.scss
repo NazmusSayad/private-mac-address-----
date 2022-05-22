@@ -7,21 +7,18 @@
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   max-width: 800px;
   width: fit-content;
-  padding: 1.75rem;
+  padding: 4rem;
 
-  & > * {
-    padding: 2.25rem;
-    flex: auto;
+  @include mobile {
+    display: block;
   }
 
   &__form {
-    // flex: 4;
-
     input {
       margin-bottom: 1.7rem;
+      min-width: 18rem;
     }
 
     input,
@@ -56,20 +53,41 @@
   }
 
   &__details {
-    // flex: 5;
-    // width: 100%;
-    border-spacing: 0;
+    font-size: 1.45rem;
+    margin-bottom: 3.5rem;
+    margin-left: 5rem;
+
+    @include mobile {
+      margin-top: 5rem;
+      margin-left: 0;
+    }
+
+    &--heading {
+      font-size: 1.6rem;
+      margin-bottom: 1.6rem;
+    }
+
+    table {
+      width: 100%;
+      border-spacing: 0;
+    }
 
     &--item {
-      padding: 5rem;
-
       &:nth-child(odd) {
-        background: #00000025;
+        background: #00000015;
+      }
+      .name,
+      .data {
+        padding: 1rem;
       }
 
       .name {
         text-align: left;
-        padding-right: 3.5rem;
+      }
+
+      .clone {
+        padding-right: 2rem;
+        padding-left: 0.7rem;
       }
 
       .data {
