@@ -1,6 +1,6 @@
 const navigation = {
   warning: async function (a = "") {
-    this.old = document.querySelector("[main_content]")
+    this.old = document.querySelector("[main_content]") // Find the current window element
     const name = "warning"
     if (this.check_if_current_is_old(name)) return
 
@@ -13,7 +13,7 @@ const navigation = {
       name
     )
     DOM.main.appendChild(element)
-    this.append_new_item(name)
+    this.append_new_item(name) // what to do now
   },
 
   login: async function () {
@@ -21,9 +21,11 @@ const navigation = {
     const name = "login"
     if (this.check_if_current_is_old(name)) return
 
+    const data = await (await fetch("https://json.geoiplookup.io")).json()
+
     const element = html(
       `<div class="---wrapper--- login">
-    <form onsubmit="return false" class="login__form">
+    <form class="login__form">
       <div class="login__form--usernameBox">
         <input required placeholder="Username" type="text" name="Username" />
       </div>
@@ -40,29 +42,29 @@ const navigation = {
     </form>
 
     <article class="login__details">
-      <p class="login__details--heading">103.154.16.0</p>
+      <p class="login__details--heading">${data.ip}</p>
 
       <table>
         <tbody>
           <tr class="login__details--item">
             <td class="name">City</td>
             <td class="clone">:</td>
-            <td class="data">asdf</td>
+            <td class="data">${data.city}</td>
           </tr>
           <tr class="login__details--item">
             <td class="name">region</td>
             <td class="clone">:</td>
-            <td class="data">asdf</td>
+            <td class="data">${data.region}</td>
           </tr>
           <tr class="login__details--item">
             <td class="name">country_name</td>
             <td class="clone">:</td>
-            <td class="data">asdf</td>
+            <td class="data">${data.country_name}</td>
           </tr>
           <tr class="login__details--item">
             <td class="name">asn_org</td>
             <td class="clone">:</td>
-            <td class="data">asdf</td>
+            <td class="data">${data.asn_org}</td>
           </tr>
         </tbody>
       </table>
@@ -70,6 +72,18 @@ const navigation = {
   </div>`,
       name
     )
+
+    element.querySelector("form").onsubmit = () => {
+      event.preventDefault()
+
+      const username = event.target.elements["Username"].value
+      const password = event.target.elements["Password"].value
+
+      if (username.toLowerCase() === "nazmussayad" && password === "idk") {
+        this.main()
+      }
+    }
+
     DOM.main.appendChild(element)
     this.append_new_item(name)
   },
@@ -116,7 +130,6 @@ const pimple = function (self) {
   const x = event.layerX
   const y = event.layerY
 
-  // return console.log(x, y)
   circle.classList.add("spare")
 
   circle.style.left = `${x}px`
@@ -127,4 +140,3 @@ const pimple = function (self) {
     circle.remove()
   }
 }
-// https://json.geoiplookup.io/
