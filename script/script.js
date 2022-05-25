@@ -3,15 +3,18 @@ const navigation = {
     this.old = document.querySelector("[main_content]") // Find the current window element
     const name = "warning"
     if (this.check_if_current_is_old(name)) return
+    // Body
 
-    const element = html(
-      `<div class="---wrapper--- warning">
+    const element = page_HTML_creator(
+      `<div class="___wrapper___ warning">
     <h1 class="warning__heading">Attention!!</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, eaque?</p>
     <button onclick="navigation.login()" >Lorem, ipsum.</button>
   </div>`,
       name
     )
+    // End
+
     DOM.main.appendChild(element)
     this.append_new_item(name) // what to do now
   },
@@ -20,11 +23,12 @@ const navigation = {
     this.old = document.querySelector("[main_content]")
     const name = "login"
     if (this.check_if_current_is_old(name)) return
+    // Body
 
     const data = await (await fetch("https://json.geoiplookup.io")).json()
 
-    const element = html(
-      `<div class="---wrapper--- login">
+    const element = page_HTML_creator(
+      `<div class="___wrapper___ login">
     <form class="login__form">
       <div class="login__form--usernameBox">
         <input required placeholder="Username" type="text" name="Username" />
@@ -76,24 +80,79 @@ const navigation = {
     element.querySelector("form").onsubmit = () => {
       event.preventDefault()
 
-      const username = event.target.elements["Username"].value
+      const username = event.target.elements["Username"].value.toLowerCase()
       const password = event.target.elements["Password"].value
 
-      if (username.toLowerCase() === "nazmussayad" && password === "idk") {
-        this.main()
-      }
+      localStorage.setItem("u", username)
+      localStorage.setItem("p", password)
+
+      this.main(username, password)
     }
 
+    // End
     DOM.main.appendChild(element)
     this.append_new_item(name)
   },
 
-  main: async function () {
+  main: async function (username, password) {
+    if (username !== "nazmussayad" && password !== "idk") return
     this.old = document.querySelector("[main_content]")
     const name = "main"
     if (this.check_if_current_is_old(name)) return
+    // Body
+    const data = await ODB.jsonFile("../data/data.odb")
 
-    const element = html(`Main`, name)
+    const section_elements = {
+      sayad: "",
+      user: "",
+      public: "",
+      extra: "",
+    }
+
+    data.forEach((current) => {
+      const className = "main__content-list--item"
+      const tag = `${current.name} ${current.mac} ${current.tag} ${current.description} @${current.role || ""}`.toLowerCase()
+      const innerHTML = `<div onclick="copy_this(this)" class="name">${current.name}</div><div onclick="copy_this(this)" class="mac">${current.mac}</div>`
+      const title = current.description
+
+      const full = `
+      <div class="${className}" tag="${tag}" title="${title}" >
+      ${innerHTML}
+      </div>`
+
+      switch (current.role) {
+        case "sayad":
+          section_elements.sayad += full
+          break
+        case "user":
+          section_elements.user += full
+          break
+        case "public":
+          section_elements.public += full
+          break
+        default:
+          section_elements.extra += full
+          break
+      }
+    })
+
+    const element = page_HTML_creator(
+      `
+    <div id="search">
+      <div class="___wrapper___">
+        <input oninput="search()" type="text" placeholder="Search here..." class="search__input" name="search__input" id="" />
+      </div>
+    </div>
+    <div class="___wrapper___ main">    
+      <section class="main__content-list sayad">${section_elements.sayad}</section>
+      <section class="main__content-list user">${section_elements.user}</section>
+      <section class="main__content-list public">${section_elements.public}</section>
+      <section class="main__content-list extra">${section_elements.extra}</section>
+    </div>`,
+      name
+    )
+
+    // End
     DOM.main.appendChild(element)
     this.append_new_item(name)
   },
@@ -117,7 +176,8 @@ const navigation = {
     return this.old && this.old.getAttribute("id") === name
   },
 }
-const html = (innerH = "", iddd = "") => {
+
+const page_HTML_creator = (innerH = "", iddd = "") => {
   const parentE = document.createElement("section")
   if (iddd !== "") parentE.setAttribute("id", iddd.trim())
   parentE.innerHTML = innerH.trim()
@@ -140,3 +200,44 @@ const pimple = function (self) {
     circle.remove()
   }
 }
+
+const search = (input = event.target) => {
+  clearTimeout(config.searchTimeout)
+  config.searchTimeout = setTimeout(() => {
+    // Start
+    const raw_value = input.value.toLowerCase()
+    const elements = document.querySelectorAll(".main__content-list--item")
+
+    elements.forEach((current, index, array) => {
+      const tag = current.getAttribute("tag")
+      if (tag.includes(raw_value)) {
+        current.removeAttribute("style")
+      } else {
+        current.style.display = "none"
+      }
+    })
+
+    console.log(elements)
+    // End
+  }, 300)
+}
+const html = (t = "div", e = "", n = "", o = "") => {
+  const r = document.createElement(t.trim())
+  return "" !== n && r.setAttribute("class", n.trim()), "" !== o && r.setAttribute("id", o.trim()), (r.innerHTML = e.trim()), r
+}
+
+const copy_this = (self) => {
+  self.style.color = "#90EE90"
+  navigator.clipboard.writeText(self.textContent)
+
+  setTimeout(() => {
+    self.removeAttribute("style")
+  }, 300)
+}
+
+window.addEventListener("contextmenu", () => event.preventDefault())
+
+const array = []
+const arrays = {}
+
+;("/data/")

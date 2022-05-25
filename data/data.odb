@@ -1,110 +1,116 @@
-name,mac,description,tag,role,date
+mac,name,description,tag,role
 
 F4:30:B9:80:C9:51
 [WiredLAN]
-details----------
-wifi,tag
-owner
+;
+;
+sayad
 
 94:3A:F0:A1:D4:7A
 [Phone]
-details----------
-wifi,tag
-owner
+;
+;
+sayad
 
 3C:F8:62:F3:80:3B
 [WirelessLAN]
-details----------
-wifi,tag
-owner
+;
+;
+sayad
 
 88:1C:95:AC:A0:74
 Farid
-details----------
-wifi,tag
+;
+;
+user
+
+FC:39:64:4B:CF:FA
+Vodu
+;
+;
 user
 
 34:8B:75:00:AC:43
 Medul
-details----------
-wifi,tag
+;
+;
 
 24:41:8C:66:87:3F
 Masum Wireless
-details----------
-wifi,tag
+;
+;
 
 EC:7C:B6:AC:3C:14
 Hasib Mamu
-details----------
-wifi,tag
+;
+;
 
 FC:39:64:4B:CF:FA
 Imran
-details----------
-wifi,tag
+;
+;
 
 E4:58:B8:BF:27:63
 Sahan Mamu
-details----------
-wifi,tag
+;
+;
 
 E4:F1:D4:E0:9D:43
 Hasib
-details----------
-wifi,tag
+;
+;
 
 82:64:C0:61:A6:F3
 Rony Mama
-details----------
-wifi,tag
+;
+;
 
 08:25:25:2E:4B:79
 Medul Ammu
-details----------
-wifi,tag
+;
+;
 
 88:D5:A8:28:07:83
 Masum Phone
-details----------
-wifi,tag
+;
+;
 
 E0:1C:FC:3E:9C:5C
 Pappu Mama Router
-details----------
-wifi,tag
+;
+;
 
 04:B1:67:33:C7:4C
 Mredul Khalato Bhai
-details----------
-wifi,tag
+;
+;
 
 40:D2:5F:F4:7A:F5
 Somiron
-details----------
-wifi,tag
+;
+;
 
 3C:97:10:F0:83:D7
 -android-18c23dd7d11b7152
-details----------
-wifi,tag
+;
+;
 
 F8:2F:6A:DB:40:E9
 Sohel Mama
-details----------
-wifi,tag
+;
+;
 
 06:72:B3:50:F2:FE
 Papri
-details----------
-wifi,tag
+;
+;
 
 C0:9F:05:46:D1:05
 Mim
-details----------
-wifi,tag
+;
+;
 
 6E:DF:43:5D:24:91
 Kuch Hai
-details----------
-wifi,tag
+;
+;
