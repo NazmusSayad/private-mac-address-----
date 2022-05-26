@@ -3,7 +3,6 @@ const navigation = {
     this.old = document.querySelector("[main_content]") // Find the current window element
     const name = "warning"
     if (this.check_if_current_is_old(name)) return
-    // Body
 
     const element = page_HTML_creator(
       `<div class="___wrapper___ warning">
@@ -13,7 +12,6 @@ const navigation = {
   </div>`,
       name
     )
-    // End
 
     DOM.main.appendChild(element)
     this.append_new_item(name) // what to do now
@@ -23,9 +21,8 @@ const navigation = {
     this.old = document.querySelector("[main_content]")
     const name = "login"
     if (this.check_if_current_is_old(name)) return
-    // Body
 
-    const data = await (await fetch("https://json.geoiplookup.io")).json()
+    const data = await (await fetch("https://json.geoiplookup.io")).json() // Get data from IP address
 
     const element = page_HTML_creator(
       `<div class="___wrapper___ login">
@@ -78,28 +75,30 @@ const navigation = {
     )
 
     element.querySelector("form").onsubmit = () => {
+      // Login submit
       event.preventDefault()
 
-      const username = event.target.elements["Username"].value.toLowerCase()
+      const username = event.target.elements["Username"].value.toLowerCase() // You should know why??
       const password = event.target.elements["Password"].value
 
+      // Saving Data for next time
       localStorage.setItem("u", username)
       localStorage.setItem("p", password)
 
+      // Sending data to render list
       this.main(username, password)
     }
 
-    // End
     DOM.main.appendChild(element)
     this.append_new_item(name)
   },
 
   main: async function (username, password) {
-    if (username !== "nazmussayad" && password !== "idk") return
+    if (username !== "nazmussayad" && password !== "idk") return // If wrong username and password
     this.old = document.querySelector("[main_content]")
     const name = "main"
     if (this.check_if_current_is_old(name)) return
-    // Body
+
     const data = await ODB.jsonFile("../data/data.odb")
 
     const section_elements = {
@@ -152,7 +151,6 @@ const navigation = {
       name
     )
 
-    // End
     DOM.main.appendChild(element)
     this.append_new_item(name)
   },
@@ -160,24 +158,27 @@ const navigation = {
   append_new_item: function (name) {
     setTimeout(() => {
       DOM.animated_image.className = name
-      document.querySelector(`#${name}`).classList.add("active")
+      document.querySelector(`#${name}`).classList.add("active") // Adding active class for transition
     }, 100)
 
     if (this.old) {
-      this.old.classList.remove("active")
+      this.old.classList.remove("active") // Removing active also for transition
 
       setTimeout(() => {
+        // after transition finished remove old element
         this.old.remove()
       }, 500)
     }
   },
 
   check_if_current_is_old: function (name) {
+    // If current page is already in position
     return this.old && this.old.getAttribute("id") === name
   },
 }
 
 const page_HTML_creator = (innerH = "", iddd = "") => {
+  // Creates main Page for this document
   const parentE = document.createElement("section")
   if (iddd !== "") parentE.setAttribute("id", iddd.trim())
   parentE.innerHTML = innerH.trim()
@@ -186,6 +187,7 @@ const page_HTML_creator = (innerH = "", iddd = "") => {
 }
 
 const pimple = function (self) {
+  // Ripple click effect
   const circle = document.createElement("div")
   const x = event.layerX
   const y = event.layerY
@@ -202,14 +204,15 @@ const pimple = function (self) {
 }
 
 const search = (input = event.target) => {
+  // Main page search
   clearTimeout(config.searchTimeout)
   config.searchTimeout = setTimeout(() => {
-    // Start
     const raw_value = input.value.toLowerCase()
     const elements = document.querySelectorAll(".main__content-list--item")
 
     elements.forEach((current, index, array) => {
       const tag = current.getAttribute("tag")
+
       if (tag.includes(raw_value)) {
         current.removeAttribute("style")
       } else {
@@ -217,10 +220,10 @@ const search = (input = event.target) => {
       }
     })
 
-    console.log(elements)
-    // End
+    // console.log(elements)
   }, 300)
 }
+
 const html = (t = "div", e = "", n = "", o = "") => {
   const r = document.createElement(t.trim())
   return "" !== n && r.setAttribute("class", n.trim()), "" !== o && r.setAttribute("id", o.trim()), (r.innerHTML = e.trim()), r
@@ -237,7 +240,3 @@ const copy_this = (self) => {
 
 window.addEventListener("contextmenu", () => event.preventDefault())
 
-const array = []
-const arrays = {}
-
-;("/data/")
