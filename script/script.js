@@ -133,7 +133,7 @@ const navigation = {
             title += `Description: ${description}\n`
          }
          if (role != null) {
-            title += `Role: ${role}\n`
+            title += `Role: ${role.charAt(0).toUpperCase() + role.slice(1)}\n`
          }
          if (tag != null) {
             title += `Tag: ${tag}\n`
