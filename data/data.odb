@@ -1,32 +1,27 @@
-mac,name,description,tag,role
+mac,name,description,role,tag
 
 F4:30:B9:80:C9:51
 [WiredLAN]
-;
 ;
 sayad
 
 94:3A:F0:A1:D4:7A
 [Phone]
 ;
-;
 sayad
 
 3C:F8:62:F3:80:3B
 [WirelessLAN]
-;
 ;
 sayad
 
 88:1C:95:AC:A0:74
 Farid
 ;
-;
 user
 
 FC:39:64:4B:CF:FA
 Vodu
-;
 ;
 user
 
@@ -38,9 +33,6 @@ Masum Wireless
 
 EC:7C:B6:AC:3C:14
 Hasib Mamu
-
-FC:39:64:4B:CF:FA
-Imran
 
 E4:58:B8:BF:27:63
 Sahan Mamu

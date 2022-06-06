@@ -1,22 +1,22 @@
 @import "base";
 @mixin mobile {
-  @media only screen and (max-width: 37.5em) {
-    @content; // 600px
-  }
+   @media only screen and (max-width: 37.5em) {
+      @content; // 600px
+   }
 }
 @mixin tablet {
-  @media only screen and (max-width: 48em) {
-    @content; // 768px
-  }
+   @media only screen and (max-width: 48em) {
+      @content; // 768px
+   }
 }
 @mixin tablet-l {
-  @media only screen and (max-width: 62em) {
-    @content; // 992px
-  }
+   @media only screen and (max-width: 62em) {
+      @content; // 992px
+   }
 }
 @mixin laptop-s {
-  @media only screen and (max-width: 75em) {
-    @content; // 1200px
-  }
+   @media only screen and (max-width: 75em) {
+      @content; // 1200px
+   }
 }
 @import "app";
