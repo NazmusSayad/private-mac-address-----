@@ -94,7 +94,7 @@ const navigation = {
    },
 
    main: async function (username, password) {
-      if (username !== "nazmussayad" && password !== "idk") return // If wrong username and password
+      if (username !== "nazmussayad" || password !== "idk") return // If wrong username and password
       this.old = document.querySelector("[main_content]")
       const name = "main"
       if (this.check_if_current_is_old(name)) return
