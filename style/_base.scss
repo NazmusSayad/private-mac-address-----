@@ -13,27 +13,27 @@ $color-white: #eeeeee;
 $color-whitePlus: #f6f6f6;
 
 @keyframes fade_in_out {
-   0% {
-      opacity: 1;
-   }
-   50% {
-      opacity: 0;
-   }
-   100% {
-      opacity: 0;
-   }
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes scaleup {
-   0% {
-      transform: translate(-50%, -50%) scale(0);
-      opacity: 0.5;
-   }
-   70% {
-      opacity: 0;
-   }
-   100% {
-      transform: translate(-50%, -50%) scale(35);
-      opacity: 0;
-   }
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(35);
+    opacity: 0;
+  }
 }
