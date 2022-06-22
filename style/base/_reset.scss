@@ -19,6 +19,8 @@ body {
    font-size: 1.6rem;
    line-height: 1.4;
    min-height: 100%;
+   background: #202124;
+   color: lightgrey;
 }
 
 table {
@@ -26,7 +28,8 @@ table {
    border-spacing: 0;
 }
 
-button {
+button,
+input[type="submit"] {
    cursor: pointer;
 }
 

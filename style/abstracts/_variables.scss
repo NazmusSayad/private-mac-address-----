@@ -1,0 +1,22 @@
+$color-dark: #202124;
+$color-dark-5: lighten($color-dark, 5%);
+$color-dark-10: lighten($color-dark, 10%);
+$color-dark-15: lighten($color-dark, 15%);
+
+$color-light: #d3d3d3;
+
+////////
+$color-blue: #0a9fda;
+
+$color-light-blue-5: lighten($color-blue, 5%);
+$color-light-blue-10: lighten($color-blue, 10%);
+
+$color-dark-blue-5: darken($color-blue, 5%);
+$color-dark-blue-10: darken($color-blue, 10%);
+$color-dark-blue-15: darken($color-blue, 15%);
+
+//////////
+$color-red: #f76f72;
+
+$color-light-red-5: lighten($color-red, 5%);
+$color-light-red-10: lighten($color-red, 10%);
