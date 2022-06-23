@@ -15,7 +15,7 @@
       </div>
    </section>
 
-   <section class="new" data-id="">
+   <section js="createUserModel" class="new" data-id="">
       <div class="new-box">
          <div class="new__header">
             <h3 class="new__header--heading">Create new user</h3>
@@ -23,7 +23,7 @@
             <button class="new__header--close" onclick="createUser.hide()"></button>
          </div>
 
-         <form class="new__form" onsubmit="createUser.submit()">
+         <form js="createUserForm" class="new__form" onsubmit="createUser.submit()">
             <div class="new__form--name">
                <input type="text" name="name" placeholder="Name" required novalidate class="wid100disblock" />
             </div>
@@ -97,11 +97,11 @@
             </div>
 
             <div class="new__form--submit">
-               <button type="submit" class="wid100disblock btn -blue">Done</button>
+               <button js="submitButton" type="submit" class="wid100disblock btn -blue">Done</button>
 
-               <button type="button" class="wid100disblock btn -red">Delete</button>
+               <button js="deleteButton" type="button" class="wid100disblock btn -red" disabled onclick="createUser.delete(true)">Delete</button>
 
-               <button hidden type="reset">Reset</button>
+               <button js="resetButton" hidden type="reset">Reset</button>
             </div>
          </form>
       </div>

@@ -1,5 +1,5 @@
-const form = Object.seal({
-   login(e) {
+const login = Object.seal({
+   submit(e) {
       console.log(e)
 
       event.preventDefault()
@@ -16,6 +16,4 @@ const form = Object.seal({
 
       render.panel()
    },
-
-
 })
