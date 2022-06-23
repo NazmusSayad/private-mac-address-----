@@ -7,13 +7,19 @@ const Search = {
    },
 
    execute(input) {
+      if (!input.value) {
+         return this.elements().forEach((element) => {
+            element.removeAttribute(`style`)
+         })
+      }
+
       this.elements().forEach((element) => {
          const fuse = new Fuse([element.search])
 
          const pattern = input.value
          const result = fuse.search(pattern)
 
-         if (result.length) return (element.style.display = "block")
+         if (result.length) return element.removeAttribute(`style`)
          element.style.display = "none"
       })
    },

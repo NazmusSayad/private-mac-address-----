@@ -11,6 +11,7 @@
          />
 
          <button class="nav__createUser btn -black" onclick="User.show()">New User</button>
+         <button class="nav__createUser btn -red" onclick="Auth.logout()">Logout</button>
       </div>
    </nav>
 
@@ -32,11 +33,20 @@
 
          <form js="userForm" class="new__form" onsubmit="User.submit()">
             <div class="new__form--name">
-               <input type="text" name="name" placeholder="Name" required novalidate class="wid100disblock" />
+               <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  required
+                  novalidate
+                  class="wid100disblock"
+                  autocomplete="name"
+               />
             </div>
 
             <div class="new__form--mac">
                <input
+                  autocomplete="mac"
                   type="text"
                   name="mac"
                   maxlength="17"
@@ -59,7 +69,13 @@
             </div>
 
             <div class="new__form--tag">
-               <input type="text" name="tag" placeholder="Tag (seperated by space)" class="wid100disblock" />
+               <input
+                  type="text"
+                  name="tag"
+                  placeholder="Tag (seperated by space)"
+                  class="wid100disblock"
+                  autocomplete="tag"
+               />
             </div>
 
             <div class="new__form--date">

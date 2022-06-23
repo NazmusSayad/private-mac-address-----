@@ -155,7 +155,7 @@ const User = Object.seal({
          const data = (await res.json()).data.newUser
          this.getForm().dataset.id = data._id
          DATA.push(data)
-         render.appendItem(data)
+         Render.appendItem(data)
          return this.hide()
       }
 
@@ -202,7 +202,7 @@ const User = Object.seal({
       // If update succeed
       if (res.status === 200) {
          const data = (await res.json()).data.user
-         render.updateItem(data)
+         Render.updateItem(data)
          return this.hide()
       }
 
@@ -211,6 +211,8 @@ const User = Object.seal({
    },
 
    async delete() {
+      if (!confirm("Are you sure?")) return
+
       this.disableButtons()
       const id = this.getForm().dataset.id
 
@@ -218,7 +220,7 @@ const User = Object.seal({
 
       // If deletion succeed
       if (res.status === 204) {
-         render.deleteItem(id)
+         Render.deleteItem(id)
          return this.hide()
       }
 

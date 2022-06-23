@@ -1,5 +1,5 @@
 const Auth = Object.seal({
-   submit() {
+   login() {
       // -------  console.log(e)
 
       event.preventDefault()
@@ -15,13 +15,18 @@ const Auth = Object.seal({
       const button = form.elements["button"]
       button.setAttribute(`disabled`, "")
 
-      render.panel()
+      Render.panel()
+   },
+
+   logout() {
+      localStorage.clear()
+      Render.login()
    },
 
    error() {
       const loginPage = document.querySelector(`#login-page`) // LoginPage is available on Document
 
-      if (!loginPage) return render.login()
+      if (!loginPage) return Render.login()
       alert("Wrong Auth Details")
    },
 })

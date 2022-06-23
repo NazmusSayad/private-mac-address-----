@@ -1,16 +1,16 @@
 <main id="login-page">
    <div class="--">
-      <form class="login" onsubmit="Auth.submit(this)">
+      <form class="login" onsubmit="Auth.login(this)">
          <div class="login__image">
-            <img src="./media/root-access.svg" alt="" class="login__image--img" />
+            <img src="/media/logo.svg" alt="" class="login__image--img" />
          </div>
 
          <div class="login__username">
-            <input type="text" required name="username" class="login__username--input" placeholder="Username" />
+            <input type="text" required name="username" class="login__username--input" placeholder="Username" autocomplete="username" />
          </div>
 
          <div class="login__password">
-            <input type="password" required name="password" class="login__password--input" placeholder="Password" />
+            <input type="password" required name="password" class="login__password--input" placeholder="Password" autocomplete="current-password"/>
          </div>
 
          <div class="login__button">

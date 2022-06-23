@@ -1,4 +1,4 @@
-const render = Object.seal({
+const Render = Object.seal({
    copy() {
       const element = event.target
       const text = element.textContent.replace(/ /gm, "")
@@ -32,8 +32,8 @@ const render = Object.seal({
 
       const templateItems = HTML(`
       <section js="list-item" class="list__box--item" data-id="${data._id}" ondblclick="User.show(this)" oncontextmenu="User.show(this)">
-      <div  onclick="render.copy()" class="name">${data.name}</div>
-      <div  onclick="render.copy()" class="mac">${data.mac}</div>
+      <div  onclick="Render.copy()" class="name">${data.name}</div>
+      <div  onclick="Render.copy()" class="mac">${data.mac}</div>
       </section>`)
 
       templateItems.search = newData
@@ -69,6 +69,7 @@ const render = Object.seal({
       const loginTemplate = await (await fetch("/template/login.html")).text()
       const loginElement = HTML(loginTemplate)
 
+      document.title = "Admin | Login"
       this.clearBody()
       document.body.appendChild(loginElement)
    },
@@ -88,6 +89,7 @@ const render = Object.seal({
       const listbox = this.getListBoxs(panelElement)
       data.forEach((userInfo) => this.appendItem(userInfo, listbox))
 
+      document.title = "Mac Address"
       this.clearBody()
       document.qs("body").appendChild(panelElement)
    },
