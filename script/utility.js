@@ -3,3 +3,9 @@ const HTML = (body) => {
    element.innerHTML = body
    return element.content.firstElementChild
 }
+
+const SLEEP = (duration) => {
+   return new Promise((resolve) => {
+      setTimeout(resolve, duration)
+   })
+}

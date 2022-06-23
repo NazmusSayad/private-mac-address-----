@@ -8,19 +8,14 @@
 }
 
 html {
-   scroll-behavior: smooth;
    font-size: 62.5%;
    height: 100%;
-   // user-select: none;
 }
 
 body {
-   font-family: sans-serif;
    font-size: 1.6rem;
-   line-height: 1.4;
+   line-height: 1.5;
    min-height: 100%;
-   background: #202124;
-   color: lightgrey;
 }
 
 table {
@@ -31,6 +26,10 @@ table {
 button,
 input[type="submit"] {
    cursor: pointer;
+
+   &[disabled] {
+      cursor: not-allowed;
+   }
 }
 
 input,
@@ -60,7 +59,7 @@ h1 {
 
 .-- {
    width: 100%;
-   max-width: 1440px;
+   max-width: 144rem;
    margin-left: auto;
    margin-right: auto;
 }

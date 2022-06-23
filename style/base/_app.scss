@@ -1,0 +1,14 @@
+html {
+   scroll-behavior: smooth;
+   // user-select: none;
+}
+
+body {
+   font-family: "Rubik", sans-serif;
+   background: #202124;
+   color: lightgrey;
+
+   &.overflow-hidden {
+      overflow: hidden;
+   }
+}

@@ -1,13 +1,109 @@
-<main id="panel">
+<main id="panel-page">
    <nav class="nav">
       <div class="--">
          <input placeholder="Search here..." class="nav__input" id="nav__search--input" type="text" />
 
-         <button class="nav__createUser">New User</button>
+         <button class="nav__createUser btn -black" onclick="createUser.show()">New User</button>
       </div>
    </nav>
 
-   <main class="list">
-      <div class="--"></div>
-   </main>
+   <section class="list">
+      <div js="listContainer" class="--">
+         <section class="list__box sayad"></section>
+         <section class="list__box user"></section>
+         <section class="list__box public"></section>
+      </div>
+   </section>
+
+   <section class="new" data-id="">
+      <div class="new-box">
+         <div class="new__header">
+            <h3 class="new__header--heading">Create new user</h3>
+
+            <button class="new__header--close" onclick="createUser.hide()"></button>
+         </div>
+
+         <form class="new__form" onsubmit="createUser.submit()">
+            <div class="new__form--name">
+               <input type="text" name="name" placeholder="Name" required novalidate class="wid100disblock" />
+            </div>
+
+            <div class="new__form--mac">
+               <input
+                  type="text"
+                  name="mac"
+                  maxlength="17"
+                  minlength="17"
+                  placeholder="Mac Address"
+                  required
+                  class="wid100disblock"
+               />
+            </div>
+
+            <div class="new__form--role">
+               <input type="radio" name="role" id="role-1-irui" value="sayad" />
+               <label for="role-1-irui">Sayad</label>
+
+               <input type="radio" name="role" id="role-2-irui" value="user" />
+               <label for="role-2-irui">User</label>
+
+               <input type="radio" name="role" id="role-3-irui" value="public" checked />
+               <label for="role-3-irui">Public</label>
+            </div>
+
+            <div class="new__form--tag">
+               <input type="text" name="tag" placeholder="Tag (seperated by space)" class="wid100disblock" />
+            </div>
+
+            <div class="new__form--date">
+               <select name="date" id="" class="wid100disblock">
+                  <option value="8" js="defaultDateSelectOption" selected disabled hidden>8 (default)</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                  <option value="31">31</option>
+               </select>
+            </div>
+
+            <div class="new__form--description">
+               <textarea placeholder="Description..." name="description" rows="4" class="wid100disblock"></textarea>
+            </div>
+
+            <div class="new__form--submit">
+               <button type="submit" class="wid100disblock btn -blue">Done</button>
+
+               <button type="button" class="wid100disblock btn -red">Delete</button>
+
+               <button hidden type="reset">Reset</button>
+            </div>
+         </form>
+      </div>
+   </section>
 </main>

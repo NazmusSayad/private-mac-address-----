@@ -20,3 +20,8 @@ $color-red: #f76f72;
 
 $color-light-red-5: lighten($color-red, 5%);
 $color-light-red-10: lighten($color-red, 10%);
+$color-light-red-15: lighten($color-red, 10%);
+
+$color-dark-red-5: darken($color-red, 5%);
+$color-dark-red-10: darken($color-red, 10%);
+

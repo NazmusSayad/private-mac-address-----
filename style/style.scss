@@ -9,8 +9,12 @@
 @import "base/reset";
 @import "base/fonts";
 @import "base/utility";
-@import "base/buttons";
-@import "base/typography";
+@import "base/app";
 
-@import "components/login";
-@import "components/panel";
+:where(#login-page) {
+   @import "components/login";
+}
+
+:where(#panel-page) {
+   @import "components/panel";
+}

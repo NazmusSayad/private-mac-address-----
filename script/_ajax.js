@@ -1,9 +1,12 @@
-export default {
+const ajax = Object.seal({
    endpoint: "https://mac-address.herokuapp.com/api/",
    getHeaders() {
       const headers = new Headers()
-      headers.append("username", "NazmusSayad")
-      headers.append("password", "yoboi")
+      const username = localStorage.getItem(`username`)
+      const password = localStorage.getItem(`password`)
+
+      headers.append("username", username)
+      headers.append("password", password)
 
       return headers
    },
@@ -15,8 +18,7 @@ export default {
          headers,
       }
 
-      const res = await fetch(this.endpoint, init)
-      return res.json()
+      return fetch(this.endpoint, init)
    },
 
    async createUser(data) {
@@ -29,8 +31,7 @@ export default {
          body,
       }
 
-      const res = await fetch(this.endpoint, init)
-      return res.json()
+      return fetch(this.endpoint, init)
    },
 
    async updateUser(id, data) {
@@ -43,8 +44,7 @@ export default {
          body,
       }
 
-      const res = await fetch(this.endpoint + id, init)
-      return res.json()
+      return fetch(this.endpoint + id, init)
    },
 
    async deleteUser(id) {
@@ -56,4 +56,4 @@ export default {
 
       return fetch(this.endpoint + id, init)
    },
-}
+})

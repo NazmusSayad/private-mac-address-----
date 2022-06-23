@@ -1,8 +1,8 @@
-#panel {
-}
-
 .nav {
-   position: sticky;
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
    background: $color-dark-5;
 
    .-- {
@@ -19,33 +19,262 @@
       border: 0;
       outline: 0;
       border-radius: 100vmax;
+      transition: 0.2s ease-in-out;
+
+      &:focus {
+         background: $color-dark-15;
+         box-shadow: 0 0 0.2rem 0.2rem $color-dark-blue-15;
+      }
    }
 
    .nav__input {
       background: $color-dark-10;
-      transition: 0.5s ease-in-out;
       padding: 0.3rem 1.5rem;
       flex: 1;
       min-width: 15ch;
    }
 
    .nav__createUser {
-      padding: 0.5rem 1rem;
-      background: transparent;
-      transition: 0.3s ease-in-out;
-      background: $color-dark-10;
-      font-size: 1.4rem;
-      min-width: fit-content;
-
-      &:hover {
-         background: $color-dark-15;
-      }
    }
 }
 
 .list {
+   padding: 7rem 2rem;
+
    .-- {
+   }
+
+   &__box {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      align-items: center;
+      border-bottom: 1px solid $color-dark-10;
+      padding-bottom: 4rem;
+      margin-bottom: 4rem;
+
+      &.sayad {
+      }
+
+      &.users {
+      }
+
+      &.public {
+      }
+
+      &--item {
+         min-width: 19rem;
+         width: 17.5%;
+         max-width: 25rem;
+         flex-grow: 1;
+         padding: 2rem 1rem;
+         border-radius: 0.5rem;
+         text-align: center;
+         background: $color-dark-5;
+         box-shadow: 0 0 1rem 0.2rem #00000045;
+         line-height: 1.6;
+         font-size: 1.7rem;
+
+         .name,
+         .mac {
+            cursor: pointer;
+            margin: auto;
+            padding: 0 1rem;
+
+            &:hover {
+               color: $color-light-red-15;
+            }
+
+            &.copied {
+               color: greenyellow;
+            }
+         }
+      }
    }
 }
 
+.new {
+   position: fixed;
+   inset: 0;
+   background: transparent;
+   overflow-y: scroll;
+   display: none;
+   transition: background 0.3s ease-in-out;
+   transition-delay: 0.3s;
 
+   &.opening {
+      display: block;
+   }
+
+   &.opened {
+      background: rgba($color-dark, 0.9);
+      transition-delay: 0s;
+
+      .new-box {
+         transform: translateY(0);
+         transition-delay: 0.1s;
+      }
+   }
+
+   .new-box {
+      width: min(100%, 50rem);
+      margin: auto;
+      margin-block: max(10vh, 5rem);
+      background: $color-dark;
+      box-shadow: 0 0 2rem 0.5rem rgba(black, 0.5);
+      border-radius: 1rem;
+      transform: translateY(-100vh);
+      transition: transform 0.5s ease-in-out;
+
+      & > * {
+         padding-inline: 4rem;
+      }
+   }
+
+   &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #181818;
+      padding-block: 1rem;
+
+      &--heading {
+      }
+
+      &--close {
+         position: relative;
+         display: block;
+         width: 4rem;
+         aspect-ratio: 1;
+         background: transparent;
+         box-shadow: 0 0 0 1rem transparent;
+         border: 0;
+         outline: 0;
+         border-radius: 50%;
+         transition: 0.3s ease-in-out;
+
+         &::after,
+         &::before {
+            @include content-display;
+            --height: 0.3rem;
+            position: absolute;
+            width: 60%;
+            height: var(--height);
+            background: $color-light-red-15;
+            transition: 0.4s ease-in-out;
+
+            top: calc(50% - (var(--height) / 2));
+            left: 22.5%;
+         }
+
+         &::before {
+            transform: rotate(45deg);
+         }
+
+         &::after {
+            transform: rotate(-45deg);
+         }
+
+         &:hover {
+            background: $color-dark-5;
+
+            &::before {
+               transform: rotate(-45deg);
+            }
+            &::after {
+               transform: rotate(45deg);
+            }
+         }
+
+         &:focus {
+            box-shadow: 0 0 0.2rem 0.1rem $color-light-red-10;
+
+            &::before {
+               transform: rotate(-135deg);
+            }
+            &::after {
+               transform: rotate(135deg);
+            }
+         }
+      }
+   }
+
+   &__form {
+      padding-block: 2rem 3rem;
+
+      .wid100disblock {
+         display: block;
+         width: 100%;
+      }
+
+      & > * {
+         margin-bottom: 2rem;
+      }
+
+      button {
+         border-radius: 0.5rem;
+      }
+
+      &--role {
+         display: flex;
+         align-items: center;
+
+         input {
+            margin-bottom: 0.2rem;
+            border-radius: 50%;
+         }
+
+         label {
+            padding-right: 2rem;
+            padding-left: 0.5rem;
+         }
+
+         input,
+         label {
+            cursor: pointer;
+
+            &:hover {
+            }
+         }
+      }
+
+      &--description {
+         textarea {
+            width: 100%;
+            max-width: 100%;
+            min-width: 100%;
+         }
+      }
+
+      &--submit {
+         margin-top: 3rem;
+         display: flex;
+         gap: 3rem;
+      }
+   }
+}
+
+:where(input, button, textarea, select) {
+   padding: 0.5rem 1rem;
+   border-radius: 0.5rem;
+   outline: 0;
+   border: 0;
+   background: $color-dark-5;
+   --box-shadow: 0 0 0.25rem 0.2rem;
+   box-shadow: var(--box-shadow) transparent;
+   transition: box-shadow 0.3s ease-in-out;
+
+   &:hover {
+      box-shadow: var(--box-shadow) #80808050;
+   }
+
+   &:focus {
+      box-shadow: var(--box-shadow) $color-light-blue-5;
+   }
+
+   &:invalid {
+      box-shadow: var(--box-shadow) $color-light-red-5;
+   }
+}
