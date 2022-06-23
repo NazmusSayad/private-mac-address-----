@@ -90,6 +90,8 @@ const User = Object.seal({
          if (data.date) {
             const dateOption = form.qs(`option[value="${data.date}"]`)
             dateOption.setAttribute(`selected`, "")
+         } else {
+            defaultDateOptionElement.nextElementSibling.setAttribute(`selected`, "")
          }
       }
 

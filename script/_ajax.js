@@ -1,14 +1,10 @@
 const ajax = Object.seal({
    endpoint: "https://mac-address.herokuapp.com/api/",
    getHeaders() {
-      const headers = new Headers()
       const username = localStorage.getItem(`username`)
       const password = localStorage.getItem(`password`)
 
-      headers.append("username", username)
-      headers.append("password", password)
-
-      return headers
+      return new Headers({ username, password })
    },
 
    async getList() {

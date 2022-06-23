@@ -58,8 +58,8 @@
             </div>
 
             <div class="new__form--role">
-               <input type="radio" name="role" id="role-1-irui" value="sayad" />
-               <label for="role-1-irui">Sayad</label>
+               <input hidden type="radio" name="role" id="role-1-irui" value="sayad" />
+               <label hidden for="role-1-irui">Sayad</label>
 
                <input type="radio" name="role" id="role-2-irui" value="user" />
                <label for="role-2-irui">User</label>
@@ -80,7 +80,8 @@
 
             <div class="new__form--date">
                <select name="date" id="" class="wid100disblock">
-                  <option value="8" js="defaultDateSelectOption" selected disabled hidden>8 (default)</option>
+                  <option value="-" js="defaultDateSelectOption" selected disabled hidden>- (default)</option>
+                  <option value="" js="dateSelectOption-None">(none)</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -116,11 +117,21 @@
             </div>
 
             <div class="new__form--description">
-               <textarea placeholder="Description..." name="description" rows="4" class="wid100disblock"></textarea>
+               <textarea
+                  placeholder="Description..."
+                  name="description"
+                  rows="4"
+                  class="wid100disblock"
+               ></textarea>
             </div>
 
             <div class="new__form--submit">
-               <button js="deleteButton" type="button" class="wid100disblock btn -red" onclick="User.delete()">
+               <button
+                  js="deleteButton"
+                  type="button"
+                  class="wid100disblock btn -red"
+                  onclick="User.delete()"
+               >
                   Delete
                </button>
 
