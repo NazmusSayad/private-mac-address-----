@@ -1,7 +1,14 @@
 <main id="panel-page">
    <nav class="nav">
       <div class="--">
-         <input placeholder="Search here..." class="nav__input" id="nav__search--input" type="text" oninput="Search.submit()" />
+         <input
+            js="panelSearch"
+            placeholder="Search here..."
+            class="nav__input"
+            id="nav__search--input"
+            type="text"
+            oninput="Search.submit()"
+         />
 
          <button class="nav__createUser btn -black" onclick="User.show()">New User</button>
       </div>
@@ -15,10 +22,10 @@
       </div>
    </section>
 
-   <section js="userModel" class="new" data-id="">
+   <section js="userModel" class="new">
       <div class="new-box">
          <div class="new__header">
-            <h3 class="new__header--heading">Create new user</h3>
+            <h3 class="new__header--heading">User Management:</h3>
 
             <button class="new__header--close" onclick="User.hide()"></button>
          </div>
@@ -97,11 +104,11 @@
             </div>
 
             <div class="new__form--submit">
-               <button js="submitButton" type="submit" class="wid100disblock btn -blue">Done</button>
-
                <button js="deleteButton" type="button" class="wid100disblock btn -red" onclick="User.delete()">
                   Delete
                </button>
+
+               <button js="submitButton" type="submit" class="wid100disblock btn -blue">Done</button>
 
                <button js="resetButton" hidden type="reset">Reset</button>
             </div>

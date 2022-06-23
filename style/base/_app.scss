@@ -1,6 +1,6 @@
 html {
    scroll-behavior: smooth;
-   // user-select: none;
+   user-select: none;
 }
 
 body {
@@ -11,4 +11,10 @@ body {
    &.overflow-hidden {
       overflow: hidden;
    }
+}
+
+::selection {
+   background: cadetblue;
+   color: transparent;
+   text-shadow: 0 0 0.15rem $color-light;
 }

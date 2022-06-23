@@ -1,4 +1,14 @@
 const render = Object.seal({
+   copy() {
+      const element = event.target
+      const text = element.textContent.replace(/ /gm, "")
+
+      navigator.clipboard.writeText(text)
+
+      element.classList.add(`copied`)
+      setTimeout(() => element.classList.remove(`copied`), 400)
+   },
+
    clearBody() {
       document.qs("body").innerHTML = ""
    },
@@ -12,11 +22,21 @@ const render = Object.seal({
    },
 
    appendItem(data, listbox = this.getListBoxs()) {
+      let newData = ""
+      for (let key in data) {
+         if (data[key]) {
+            newData += "\n" + data[key]
+         }
+      }
+      newData = newData.toLowerCase()
+
       const templateItems = HTML(`
-      <section js="list-item" class="list__box--item" data-id="${data._id}" onclick="((evt)=>{User.show(evt)})(this)" >
-      <div class="name">${data.name}</div>
-      <div class="mac">${data.mac}</div>
+      <section js="list-item" class="list__box--item" data-id="${data._id}" ondblclick="User.show(this)" oncontextmenu="User.show(this)">
+      <div  onclick="render.copy()" class="name">${data.name}</div>
+      <div  onclick="render.copy()" class="mac">${data.mac}</div>
       </section>`)
+
+      templateItems.search = newData
 
       listbox[data.role].appendChild(templateItems)
    },

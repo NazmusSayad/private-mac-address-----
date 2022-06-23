@@ -50,6 +50,7 @@ const User = Object.seal({
    },
 
    show(ifElement) {
+      event.preventDefault()
       // Elements
       const element = this.getModel()
       const form = this.getForm()
