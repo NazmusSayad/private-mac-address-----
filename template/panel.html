@@ -1,9 +1,9 @@
 <main id="panel-page">
    <nav class="nav">
       <div class="--">
-         <input placeholder="Search here..." class="nav__input" id="nav__search--input" type="text" />
+         <input placeholder="Search here..." class="nav__input" id="nav__search--input" type="text" oninput="Search.submit()" />
 
-         <button class="nav__createUser btn -black" onclick="createUser.show()">New User</button>
+         <button class="nav__createUser btn -black" onclick="User.show()">New User</button>
       </div>
    </nav>
 
@@ -15,15 +15,15 @@
       </div>
    </section>
 
-   <section js="createUserModel" class="new" data-id="">
+   <section js="userModel" class="new" data-id="">
       <div class="new-box">
          <div class="new__header">
             <h3 class="new__header--heading">Create new user</h3>
 
-            <button class="new__header--close" onclick="createUser.hide()"></button>
+            <button class="new__header--close" onclick="User.hide()"></button>
          </div>
 
-         <form js="createUserForm" class="new__form" onsubmit="createUser.submit()">
+         <form js="userForm" class="new__form" onsubmit="User.submit()">
             <div class="new__form--name">
                <input type="text" name="name" placeholder="Name" required novalidate class="wid100disblock" />
             </div>
@@ -99,7 +99,9 @@
             <div class="new__form--submit">
                <button js="submitButton" type="submit" class="wid100disblock btn -blue">Done</button>
 
-               <button js="deleteButton" type="button" class="wid100disblock btn -red" disabled onclick="createUser.delete(true)">Delete</button>
+               <button js="deleteButton" type="button" class="wid100disblock btn -red" onclick="User.delete()">
+                  Delete
+               </button>
 
                <button js="resetButton" hidden type="reset">Reset</button>
             </div>

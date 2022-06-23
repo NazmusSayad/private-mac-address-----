@@ -1,9 +1,10 @@
-const createUser = Object.seal({
+const User = Object.seal({
    getModel() {
-      return document.qs(`[js="createUserModel"]`)
+      return document.qs(`[js="userModel"]`)
    },
+
    getForm() {
-      return document.qs(`[js="createUserForm"]`)
+      return document.qs(`[js="userForm"]`)
    },
 
    getFormElements() {
@@ -34,11 +35,11 @@ const createUser = Object.seal({
       const form = this.getForm()
       const buttons = form.qsa(`button[type][js]`)
 
-      console.log(buttons)
       buttons.forEach((element) => {
          element.setAttribute(`disabled`, "")
       })
    },
+
    enableButtons() {
       const form = this.getForm()
       const buttons = form.qsa(`button[type][js]`)
@@ -75,13 +76,11 @@ const createUser = Object.seal({
 
          const data = GetDataById(id)
 
-         console.log(data)
          // Forn Elements
          const formElements = this.getFormElements()
 
          // Settings Data
          form_deleteBtn.removeAttribute(`disabled`)
-         console.log(form_deleteBtn)
          formElements.name.value = data.name
          formElements.mac.value = data.mac
          if (data.tag) formElements.tag.value = data.tag
@@ -112,28 +111,20 @@ const createUser = Object.seal({
       }, 500)
    },
 
-   toggle(ifElement) {
-      const element = this.getModel()
-
-      if (element.classList.contains(`opened`)) return this.hide()
-      if (element.classList.contains(`opening`)) return
-      this.show(ifElement)
-   },
-
    submit() {
       event.preventDefault()
-      const form = this.getForm()
       this.disableButtons()
 
-      if (form.dataset.id) {
-         return this.update()
-      }
+      const form = this.getForm()
+      // If any data-id found this means model is opened by a list item
+      if (form.dataset.id) return this.update()
       this.create()
    },
 
    async create() {
-      console.log("I am from Create")
       const formElements = this.getFormElements()
+
+      // Gathering Data
       const name = formElements.name.value
       const mac = formElements.mac.value
       const description = formElements.description.value
@@ -141,6 +132,7 @@ const createUser = Object.seal({
       const date = +formElements.date.value
       const role = formElements.role.value
 
+      // Making the final Object
       const createObj = {
          name,
          mac,
@@ -149,37 +141,39 @@ const createUser = Object.seal({
          date,
          role,
       }
-
       for (let key in createObj) {
+         // Remoging empty string Keys
          if (createObj[key] === "") delete createObj[key]
       }
 
+      // Sending to AJAX
       const res = await ajax.createUser(createObj)
-      console.log(res)
 
+      // If create succeed
       if (res.status === 201) {
          const data = (await res.json()).data.newUser
          this.getForm().dataset.id = data._id
          DATA.push(data)
          render.appendItem(data)
-         return this.enableButtons()
+         return this.hide()
       }
 
+      // If duplicate entry
       if (res.status === 400) {
          alert("Duplicate MAC")
          return this.enableSubmitButton()
       }
 
       this.enableSubmitButton()
-      alert("Maybe No Internet")
+      alert("Something Wrong")
    },
 
    async update() {
-      console.log("I am from Update")
-      const formElements = this.getFormElements()
       const form = this.getForm()
       const id = form.dataset.id
+      const formElements = this.getFormElements()
 
+      // Gathering data
       const name = formElements.name.value
       const mac = formElements.mac.value
       const description = formElements.description.value
@@ -187,6 +181,7 @@ const createUser = Object.seal({
       const date = +formElements.date.value
       const role = formElements.role.value
 
+      // Making the final Object
       const createObj = {
          name,
          mac,
@@ -195,16 +190,23 @@ const createUser = Object.seal({
          date,
          role,
       }
-
-      const res = await ajax.updateUser(id, createObj)
-      if (res.status === 200) {
-         const data = (await res.json()).data.user
-         render.updateInfo(data)
+      for (let key in createObj) {
+         // Remoging empty string Keys
+         if (createObj[key] === "") delete createObj[key]
       }
 
-      console.log(res)
+      // Sending to AJAX
+      const res = await ajax.updateUser(id, createObj)
+
+      // If update succeed
+      if (res.status === 200) {
+         const data = (await res.json()).data.user
+         render.updateItem(data)
+         return this.hide()
+      }
 
       this.enableButtons()
+      alert("Something Wrong")
    },
 
    async delete() {
@@ -212,10 +214,14 @@ const createUser = Object.seal({
       const id = this.getForm().dataset.id
 
       const res = await ajax.deleteUser(id)
-      if (res.status !== 204) return alert("Something Wrong")
 
-      render.deleteItem(id)
+      // If deletion succeed
+      if (res.status === 204) {
+         render.deleteItem(id)
+         return this.hide()
+      }
+
       this.enableButtons()
-      this.hide()
+      alert("Something Wrong")
    },
 })
