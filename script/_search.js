@@ -1,9 +1,6 @@
 const Search = {
    elements() {
-      if (this._elements) return this._elements
-      const elements = document.qsa(`[js="list-item"]`)
-      this._elements = elements
-      return elements
+      return document.qsa(`[js="list-item"]`)
    },
 
    execute(input) {
