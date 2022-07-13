@@ -2,70 +2,70 @@
 }
 
 .-- {
-   display: flow-root;
+  display: flow-root;
 }
 
 .login {
-   margin: auto;
-   margin-top: max(20vh, 7.5rem);
-   width: min(90%, 30rem);
-   background: $color-dark-5;
-   border-radius: 1rem;
-   box-shadow: 0 1rem 2.5rem 0.5rem #00000040;
-   padding: min(5%, 4rem);
+  margin: auto;
+  margin-top: max(20vh, 7.5rem);
+  width: min(90%, 30rem);
+  background: $color-dark-5;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2.5rem 0.5rem #00000040;
+  padding: min(5%, 4rem);
 
-   :where(input, button) {
-      display: block;
-      width: 100%;
-      margin-bottom: 1.25rem;
-      padding: 0.5rem 1rem;
-      border-radius: 0.5rem;
-      outline: 0;
-      border: 0;
-      background: $color-dark-10;
-      --box-shadow: 0 0 0.25rem 0.2rem;
-      box-shadow: var(--box-shadow) transparent;
-      transition: 0.3s ease-in-out;
+  :where(input, button) {
+    display: block;
+    width: 100%;
+    margin-bottom: 1.25rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    outline: 0;
+    border: 0;
+    background: $color-dark-10;
+    --box-shadow: 0 0 0.25rem 0.2rem;
+    box-shadow: var(--box-shadow) transparent;
+    transition: 0.3s ease-in-out;
 
-      &:hover {
-         box-shadow: var(--box-shadow) #80808050;
-      }
+    &:hover {
+      box-shadow: var(--box-shadow) #80808050;
+    }
 
-      &:focus {
-         background: $color-dark-15;
-         box-shadow: var(--box-shadow) $color-light-blue-5;
-      }
+    &:focus {
+      background: $color-dark-15;
+      box-shadow: var(--box-shadow) $color-light-blue-5;
+    }
 
-      &:invalid {
-         box-shadow: var(--box-shadow) $color-light-red-5;
-      }
-   }
+    &:invalid {
+      box-shadow: var(--box-shadow) $color-light-red-5;
+    }
+  }
 
-   &__image {
-      height: 10rem;
-      width: fit-content;
-      margin: auto;
-      margin-bottom: 2.5rem;
+  &__image {
+    height: 10rem;
+    width: fit-content;
+    margin: auto;
+    margin-bottom: 2.5rem;
 
-      &--img {
-         height: 100%;
-      }
-   }
+    &--img {
+      height: 100%;
+    }
+  }
 
-   &__username {
-      &--input {
-      }
-   }
+  &__username {
+    &--input {
+    }
+  }
 
-   &__password {
-      &--input {
-      }
-   }
+  &__password {
+    &--input {
+    }
+  }
 
-   &__button {
-      &--input {
-         font-size: 1.55rem;
-         padding: 0.7rem 1rem;
-      }
-   }
+  &__button {
+    &--input {
+      font-size: 1.55rem;
+      padding: 0.7rem 1rem;
+    }
+  }
 }

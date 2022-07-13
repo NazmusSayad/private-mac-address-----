@@ -12,9 +12,9 @@
 @import "base/app";
 
 :where(#login-page) {
-   @import "components/login";
+  @import "components/login";
 }
 
 :where(#panel-page) {
-   @import "components/panel";
+  @import "components/panel";
 }

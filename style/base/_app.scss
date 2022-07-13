@@ -1,20 +1,20 @@
 html {
-   scroll-behavior: smooth;
-   user-select: none;
+  scroll-behavior: smooth;
+  user-select: none;
 }
 
 body {
-   font-family: "Rubik", sans-serif;
-   background: #202124;
-   color: lightgrey;
+  font-family: "Rubik", sans-serif;
+  background: #202124;
+  color: lightgrey;
 
-   &.overflow-hidden {
-      overflow: hidden;
-   }
+  &.overflow-hidden {
+    overflow: hidden;
+  }
 }
 
 ::selection {
-   background: cadetblue;
-   color: transparent;
-   text-shadow: 0 0 0.15rem $color-light;
+  background: cadetblue;
+  color: transparent;
+  text-shadow: 0 0 0.15rem $color-light;
 }

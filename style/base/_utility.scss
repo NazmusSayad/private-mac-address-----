@@ -1,62 +1,62 @@
 .btn {
-   border: 0;
-   outline: 0;
-   position: relative;
-   z-index: 0;
-   overflow: hidden;
-   padding: 0.5rem 1.5rem;
-   border-radius: 100vmax;
-   font-size: 1.4rem;
+  border: 0;
+  outline: 0;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding: 0.5rem 1.5rem;
+  border-radius: 100vmax;
+  font-size: 1.4rem;
 
-   &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      z-index: -1;
-      height: 100%;
-      width: 0;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: 0.3s ease-in-out;
-   }
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 0;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+  }
 
-   &:hover {
-      box-shadow: 0 0 0.2rem 0.2rem #80808050;
-   }
+  &:hover {
+    box-shadow: 0 0 0.2rem 0.2rem #80808050;
+  }
 
-   &:hover::before {
-      width: 100%;
-      opacity: 1;
-   }
+  &:hover::before {
+    width: 100%;
+    opacity: 1;
+  }
 
-   &:focus {
-      box-shadow: 0 0 0.2rem 0.2rem $color-dark-blue-15;
-   }
+  &:focus {
+    box-shadow: 0 0 0.2rem 0.2rem $color-dark-blue-15;
+  }
 
-   // Colors
-   &.-blue {
-      background: $color-dark-blue-15;
-   }
+  // Colors
+  &.-blue {
+    background: $color-dark-blue-15;
+  }
 
-   &.-black {
-      background: $color-dark-15;
-   }
+  &.-black {
+    background: $color-dark-15;
+  }
 
-   &.-red {
-      background: $color-dark-red-5;
-   }
+  &.-red {
+    background: $color-dark-red-5;
+  }
 
-   // Before
-   &.-blue::before {
-      background: $color-dark-blue-10;
-   }
+  // Before
+  &.-blue::before {
+    background: $color-dark-blue-10;
+  }
 
-   &.-black::before {
-      background: $color-dark-10;
-   }
+  &.-black::before {
+    background: $color-dark-10;
+  }
 
-   &.-red::before {
-      background: $color-dark-red-10;
-   }
+  &.-red::before {
+    background: $color-dark-red-10;
+  }
 }
